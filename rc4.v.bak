@@ -1,0 +1,36 @@
+module rc4
+(
+    input clk,
+    input rst_n,
+    input key_setup_en,
+    input cipher_req,
+    input [7:0] key,
+
+    output cipher_valid,
+    output [7:0] 
+);
+
+    reg [7:0] i, j, k;
+    reg [7:0] ckey [255:0];
+    
+    reg [2:0] state;
+
+    parameter INIT = 0;
+    parameter KEY_SETUP = 1;
+    parameter PRGA = 2;
+
+    ram SBox(
+        .rst_n      (rst_n),
+        .clk        (clk),
+        .wen_2      (state),
+        .wen_3      (),
+        .raddr_1    (),
+        .waddr_2    (),
+        .addr_3     (),
+        .wdata_2    (),
+        .wdata_3    (),
+        .rdata_1    (),
+        .rdata_3    ()
+    );
+	
+endmodule 
