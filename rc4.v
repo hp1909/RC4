@@ -9,9 +9,10 @@ module rc4
     output cipher_valid
 );
 
+
     reg [7:0] i, j, k, n;
     reg [7:0] ckey [255:0];
-    
+    reg PRGA_ready;
     reg 	[2:0]   state;
     reg			    wen_2, wen_3;
     reg	    [7:0]	Si, Sj, Sk;
@@ -19,8 +20,10 @@ module rc4
     wire    [7:0]   raddr_1, waddr_2, addr_3;
     wire    [7:0]   rdata_1, rdata_3;
 
-    parameter KSA = 0;
-    parameter PRGA = 0;
+    // state 
+    parameter STEP_1 = 1;
+    parameter STEP_2 = 2;
+    parameter IDLE = 0;
 
     always@(posedge clk)
     begin
@@ -41,6 +44,7 @@ module rc4
         end
         PRGA_start = key_setup_en && (i == 255);
     end
+
 
     always@(posedge clk)
     begin
