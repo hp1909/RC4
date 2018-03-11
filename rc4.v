@@ -14,6 +14,7 @@ module rc4
     reg [7:0] ckey [255:0];
     reg PRGA_ready, PRGA, KSA;
     reg 	[2:0]   state;
+    reg             first_iter;
     reg			    wen_2, wen_3;
     reg	    [7:0]	Si, Sj, Sk;
     wire     [7:0]   wdata_2, wdata_3;
@@ -38,6 +39,9 @@ module rc4
             Sk      <= 8'd0;
             KSA     <= 1'b1;
             PRGA    <= 1'b0;
+            wen_2   <= 1'b0;
+            wen_3   <= 1'b0;
+            first_iter <= 1'b0;
         end
         else if (PRGA_start)
         begin
@@ -61,18 +65,28 @@ module rc4
             case (state)
                 IDLE:
                 begin
-                    state <= 3'd1;
+                    state <= STEP_1;
                 end
                 STEP_1:
                 begin
-
+                    if (first_iter)
+                    begin
+                        state <= STEP_2;
+                    end
+                    else 
+                    begin
+                        state <= IDLE;
+                    end
                 end
             endcase
         end
     end
 
     // address for every step 
-    assign raddr_1 = STEP_1 ? i : k;
+    assign raddr_1 = STEP_1 ? i : STEP_2 ? k;
+    assign waddr_2 = i;
+    assign addr_3 = j;
+    assign 
 
     ram SBox(
         .rst_n      (rst_n),
