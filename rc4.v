@@ -75,6 +75,7 @@ module rc4
                     end
                     else 
                     begin
+                        
                         state <= IDLE;
                     end
                 end
