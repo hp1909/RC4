@@ -5,15 +5,10 @@ module rc4
     input start,
     input cipher_req,
     input [31:0] key,
-    input [7:0] key_length;
+    input [7:0] key_length,
 
-<<<<<<< HEAD
-    output reg done,
-    output [7:0] cKey [255:0]
-=======
-    output [7:0] ckey;
-    output done,
->>>>>>> aa1bde2bce6a809bb01d5b3bae7bf882f0b1b8ad
+    output [7:0] ckey,
+    output reg done
 );
 
 
@@ -49,23 +44,9 @@ module rc4
             wen_3   <= 1'b0;
             first_iter <= 1'b0;
         end
-        
-        if (KSA == 1 && i == 255)
+        else 
         begin
-            PRGA <= 1'b1;
-            KSA  <= 1'b0;
-        end
-        else if (PRGA == 1 && i == 255)
-        begin
-            done <= 1'b1;
-            KSA <= 1'b1;
-            PRGA <= 1'b0;
-        end
-    end
-
-    always@(posedge clk)
-    begin
-        case (state)
+            case (state)
             IDLE:
             begin
                 if (start && ~done)
@@ -116,13 +97,25 @@ module rc4
                 if (i == key_length)
                 begin
                     done <= 1'b1;
-                    start <= 1'b0; 
                     i <= 8'd0;
                 end
             end
         endcase
+        end
+        
+        if (KSA == 1 && i == 255)
+        begin
+            PRGA <= 1'b1;
+            KSA  <= 1'b0;
+        end
+        else if (PRGA == 1 && i == 255)
+        begin
+            done <= 1'b1;
+            KSA <= 1'b1;
+            PRGA <= 1'b0;
+        end
     end
-
+    
     // address for every step 
     assign raddr_1 = STEP_1 ? i : STEP_2 ? k : 0;
     assign waddr_2 = i;

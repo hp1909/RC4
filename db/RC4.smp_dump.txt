@@ -1,0 +1,6 @@
+
+State Machine - |rc4|state
+Name state.000 state.STEP_2 state.STEP_1 
+state.000 0 0 0 
+state.STEP_1 1 0 1 
+state.STEP_2 1 1 0 
