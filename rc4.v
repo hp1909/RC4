@@ -6,7 +6,8 @@ module rc4
     input cipher_req,
     input [7:0] key [255:0],
 
-    output cipher_valid
+    output done,
+    output [7:0] cKey [255:0]
 );
 
 
@@ -16,8 +17,8 @@ module rc4
     reg 	[2:0]   state;
     reg             first_iter;
     reg			    wen_2, wen_3;
-    reg	    [7:0]	Si, Sj, Sk;
-    wire     [7:0]   wdata_2, wdata_3;
+    wire	[7:0]	Si, Sj, Sk;
+    wire    [7:0]   wdata_2, wdata_3;
     wire    [7:0]   raddr_1, waddr_2, addr_3;
     wire    [7:0]   rdata_1, rdata_3;
 
@@ -43,55 +44,69 @@ module rc4
             wen_3   <= 1'b0;
             first_iter <= 1'b0;
         end
-        else if (PRGA_start)
-        begin
-            i <= 1;
-        end
         
         if (KSA == 1 && i == 255)
         begin
             PRGA <= 1'b1;
             KSA  <= 1'b0;
         end
+        else if ()
     end
-
-
-
 
     always@(posedge clk)
     begin
-        if (KSA)
-        begin
-            case (state)
-                IDLE:
+        case (state)
+            IDLE:
+            begin
+                state <= STEP_1;
+                wen_2 <= 1'b0;
+                wen_3 <= 1'b0;
+                Sj <= rdata_3;
+            end
+            STEP_1:
+            begin
+                if (first_iter)
                 begin
-                    state <= STEP_1;
+                    if (KSA)
+                        i <= 8'd0;
+                    else if (PRGA)
+                        i <= 8'd1;
                 end
-                STEP_1:
+                else
                 begin
-                    if (first_iter)
+                    wen_2 <= 1'b1;      // enable write for swap
+                    wen_3 <= 1'b1;
+                    wdata_2 <= rdata_3; // i <- S[j]
+                    wdata_3 <= rdata_1; // j <- S[i]
+                    i <= i + 1'b1;      // increase i for next iteration
+                    if (PRGA)
                     begin
-                        state <= STEP_2;
-                    end
-                    else 
-                    begin
-                        
-                        state <= IDLE;
+                        k <= rdata_1 + rdata_3;
                     end
                 end
-                STEP_2:
+                state <= STEP_2;
+            end
+            STEP_2:
+            begin
+                if (KSA)
+                    j <= j + rdata_1 + key[i];
+                else if (PRGA)
                 begin
-                    
+                    j <= j + rdata_1;
+                    Sk <= rdata_1;
                 end
-            endcase
-        end
+                    wen_3 <= 1'b1;
+            end
+        endcase
     end
 
     // address for every step 
     assign raddr_1 = STEP_1 ? i : STEP_2 ? k;
     assign waddr_2 = i;
     assign addr_3 = j;
-    assign 
+    assign Si = rdata_1;
+    assign Sk = rdata_1;
+    assign Sj = 
 
     ram SBox(
         .rst_n      (rst_n),
