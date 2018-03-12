@@ -17,7 +17,7 @@ module rc4
     reg 	[2:0]   state;
     reg             first_iter;
     reg			    wen_2, wen_3;
-    wire	[7:0]	Si, Sj, Sk;
+    reg	    [7:0]	Si, Sj, Sk;
     wire    [7:0]   wdata_2, wdata_3;
     wire    [7:0]   raddr_1, waddr_2, addr_3;
     wire    [7:0]   rdata_1, rdata_3;
@@ -110,8 +110,6 @@ module rc4
     assign waddr_2 = i;
     assign addr_3 = j;
     assign Si = rdata_1;
-    assign Sk = rdata_1;
-    assign Sj = 
 
     ram SBox(
         .rst_n      (rst_n),
