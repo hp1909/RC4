@@ -6,7 +6,7 @@ module rc4
     input cipher_req,
     input [7:0] key [255:0],
 
-    output done,
+    output reg done,
     output [7:0] cKey [255:0]
 );
 
@@ -52,9 +52,9 @@ module rc4
         end
         else if (PRGA == 1 && i == 255)
         begin
-            done => 1'b1;
-            KSA => 1'b1;
-            PRGA => 1'b0;
+            done <= 1'b1;
+            KSA <= 1'b1;
+            PRGA <= 1'b0;
         end
     end
 
