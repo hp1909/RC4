@@ -1,5 +1,5 @@
 Analysis & Elaboration report for RC4
-Mon Mar 12 10:45:49 2018
+Mon Mar 12 10:59:02 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -11,6 +11,7 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   3. Parallel Compilation
   4. Analysis & Elaboration Settings
   5. Analysis & Elaboration Messages
+  6. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -36,7 +37,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Failed - Mon Mar 12 10:45:49 2018           ;
+; Analysis & Elaboration Status      ; Failed - Mon Mar 12 10:59:02 2018           ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; RC4                                         ;
 ; Top-level Entity Name              ; rc4                                         ;
@@ -161,20 +162,29 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Mar 12 10:45:39 2018
+    Info: Processing started: Mon Mar 12 10:58:51 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RC4 -c RC4 --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file ram.v
     Info (12023): Found entity 1: ram File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram.v Line: 1
-Error (10170): Verilog HDL syntax error at rc4.v(109) near text: ";";  expecting ":", or "?", or binary operator. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 109
-Error (10170): Verilog HDL syntax error at rc4.v(116) near text: "SBox";  expecting ";". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 116
-Error (10112): Ignored design unit "rc4" at rc4.v(1) due to previous errors File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 1
-Info (12021): Found 0 design units, including 0 entities, in source file rc4.v
-Error: Quartus Prime Analysis & Elaboration was unsuccessful. 3 errors, 1 warning
+Info (12021): Found 1 design units, including 1 entities, in source file rc4.v
+    Info (12023): Found entity 1: rc4 File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 1
+Error (10773): Verilog HDL error at rc4.v(7): declaring module ports or function arguments with unpacked array types requires SystemVerilog extensions File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 7
+Error (10773): Verilog HDL error at rc4.v(11): declaring module ports or function arguments with unpacked array types requires SystemVerilog extensions File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 11
+Error (10137): Verilog HDL Procedural Assignment error at rc4.v(84): object "wdata_2" on left-hand side of assignment must have a variable data type File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 84
+Error (10137): Verilog HDL Procedural Assignment error at rc4.v(85): object "wdata_3" on left-hand side of assignment must have a variable data type File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 85
+Info (144001): Generated suppressed messages file C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/output_files/RC4.map.smsg
+Error: Quartus Prime Analysis & Elaboration was unsuccessful. 4 errors, 1 warning
     Error: Peak virtual memory: 630 megabytes
-    Error: Processing ended: Mon Mar 12 10:45:49 2018
-    Error: Elapsed time: 00:00:10
-    Error: Total CPU time (on all processors): 00:00:25
+    Error: Processing ended: Mon Mar 12 10:59:02 2018
+    Error: Elapsed time: 00:00:11
+    Error: Total CPU time (on all processors): 00:00:23
+
+
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
+The suppressed messages can be found in C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/output_files/RC4.map.smsg.
 
 
