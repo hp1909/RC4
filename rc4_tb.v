@@ -8,4 +8,36 @@ module rc4_tb();
 
     wire [7:0] ckey;
     wire done;
+
+    rc4 rc4_test(
+                    //input
+                    .clk        (clk),
+                    .rst_n      (rst_n),
+                    .start      (start),
+                    .key        (key),
+                    .key_length (key_length);
+                    //output
+                    .ckey       (ckey);
+                    .done       (done);
+    );
+
+    initial begin
+        clk = 1'b0;
+        rst_n = 1'b0;
+    end
+
+    always
+        #5 clk = !clk;
+    
+    initial begin
+        #5 
+            key = 32'habcd;
+            key_length = 8'h4;
+
+        #10
+            rst_n = 1'b1;
+        
+        #10
+            start;
+    end
 endmodule 

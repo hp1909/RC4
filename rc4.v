@@ -2,6 +2,7 @@ module rc4
 (
     input clk,
     input rst_n,
+    input start,
     input [31:0] key,
     input [7:0] key_length,
 
