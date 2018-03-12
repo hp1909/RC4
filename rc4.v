@@ -89,12 +89,12 @@ module rc4
                         wdata_2 <= rdata_3; // i <- S[j]
                         wdata_3 <= rdata_1; // j <- S[i]
                     end 
-                    i <= i + 1'b1;      // increase i for next iteration
                     if (PRGA)
                     begin
                         k <= rdata_1 + rdata_3; // calculate k by Si + Sj
                     end
                 end
+                i <= i + 1'b1;      // increase i for next iteration
                 state <= STEP_2;
             end
             STEP_2:
@@ -106,7 +106,7 @@ module rc4
                     j <= j + rdata_1;
                     Sk <= rdata_1;
                 end
-                    wen_3 <= 1'b1;
+                wen_3 <= 1'b1;
                 
                 if (i == key_length)
                 begin
