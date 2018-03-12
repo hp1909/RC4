@@ -2,8 +2,6 @@ module rc4
 (
     input clk,
     input rst_n,
-    input start,
-    input cipher_req,
     input [31:0] key,
     input [7:0] key_length,
 
@@ -86,7 +84,7 @@ module rc4
             STEP_2:
             begin
                 if (KSA)
-                    j <= j + rdata_1 + key[i];
+                    j <= j + rdata_1 + key[7 * (i + 1): 7 * i];
                 else if (PRGA)
                 begin
                     j <= j + rdata_1;
