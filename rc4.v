@@ -2,17 +2,17 @@ module rc4
 (
     input clk,
     input rst_n,
-    input key_setup_en,
+    input start,
     input cipher_req,
-    input [7:0] key [255:0],
+    input [31:0] key,
+    input [7:0] key_length;
 
+    output [7:0] ckey;
     output done,
-    output [7:0] cKey [255:0]
 );
 
 
     reg [7:0] i, j, k, n;
-    reg [7:0] ckey [255:0];
     reg PRGA_ready, PRGA, KSA;
     reg 	[2:0]   state;
     reg             first_iter;
@@ -63,7 +63,10 @@ module rc4
         case (state)
             IDLE:
             begin
-                state <= STEP_1;
+                if (start && ~done)
+                    state <= STEP_1;
+                else 
+                    state <= IDLE;
                 wen_2 <= 1'b0;
                 wen_3 <= 1'b0;
                 Sj <= rdata_3;
@@ -73,7 +76,7 @@ module rc4
                 if (first_iter)
                 begin
                     if (KSA)
-                        i <= 8'd0;
+                        i <= 8'd0;      // i = 0 if KSA and = 1 if PRGA
                     else if (PRGA)
                         i <= 8'd1;
                 end
@@ -81,12 +84,15 @@ module rc4
                 begin
                     wen_2 <= 1'b1;      // enable write for swap
                     wen_3 <= 1'b1;
-                    wdata_2 <= rdata_3; // i <- S[j]
-                    wdata_3 <= rdata_1; // j <- S[i]
+                    if (i == j)
+                    begin
+                        wdata_2 <= rdata_3; // i <- S[j]
+                        wdata_3 <= rdata_1; // j <- S[i]
+                    end 
                     i <= i + 1'b1;      // increase i for next iteration
                     if (PRGA)
                     begin
-                        k <= rdata_1 + rdata_3;
+                        k <= rdata_1 + rdata_3; // calculate k by Si + Sj
                     end
                 end
                 state <= STEP_2;
@@ -101,6 +107,13 @@ module rc4
                     Sk <= rdata_1;
                 end
                     wen_3 <= 1'b1;
+                
+                if (i == key_length)
+                begin
+                    done <= 1'b1;
+                    start <= 1'b0; 
+                    i <= 8'd0;
+                end
             end
         endcase
     end
@@ -109,7 +122,9 @@ module rc4
     assign raddr_1 = STEP_1 ? i : STEP_2 ? k : 0;
     assign waddr_2 = i;
     assign addr_3 = j;
-    assign Si = rdata_1;
+
+    // output of cipher key 
+    assign ckey = Sk;
 
     ram SBox(
         .rst_n      (rst_n),
