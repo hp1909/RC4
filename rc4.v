@@ -106,7 +106,7 @@ module rc4
     end
 
     // address for every step 
-    assign raddr_1 = STEP_1 ? i : STEP_2 ? k;
+    assign raddr_1 = STEP_1 ? i : STEP_2 ? k : 0;
     assign waddr_2 = i;
     assign addr_3 = j;
     assign Si = rdata_1;
