@@ -79,6 +79,10 @@ module rc4
                         state <= IDLE;
                     end
                 end
+                STEP_2:
+                begin
+                    
+                end
             endcase
         end
     end
