@@ -50,7 +50,12 @@ module rc4
             PRGA <= 1'b1;
             KSA  <= 1'b0;
         end
-        else if ()
+        else if (PRGA == 1 && i == 255)
+        begin
+            done => 1'b1;
+            KSA => 1'b1;
+            PRGA => 1'b0;
+        end
     end
 
     always@(posedge clk)
