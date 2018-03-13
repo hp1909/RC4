@@ -15,10 +15,10 @@ module rc4_tb();
                     .rst_n      (rst_n),
                     .start      (start),
                     .key        (key),
-                    .key_length (key_length),
+                    .key_length (key_length);
                     //output
-                    .ckey       (ckey),
-                    .done       (done)
+                    .ckey       (ckey);
+                    .done       (done);
     );
 
     initial begin
@@ -31,13 +31,13 @@ module rc4_tb();
     
     initial begin
         #5 
-            key = 32'h1234abcd;
+            key = 32'habcd;
             key_length = 8'h4;
 
         #10
             rst_n = 1'b1;
         
         #10
-            start = 1'b1;
+            start;
     end
 endmodule 

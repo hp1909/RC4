@@ -9,7 +9,8 @@ module rc4
     output [7:0] ckey,
     output reg done
 );
-
+	
+	 wire [7:0] key_reg [3:0];
 
     reg [7:0] i, j, k, n;
     reg PRGA_ready, PRGA, KSA;
@@ -42,6 +43,7 @@ module rc4
             wen_2   <= 1'b0;
             wen_3   <= 1'b0;
             first_iter <= 1'b0;
+				done	<= 1'b0;
         end
         else 
         begin
@@ -85,7 +87,7 @@ module rc4
             STEP_2:
             begin
                 if (KSA)
-                    j <= j + rdata_1 + key[7 * (i + 1): 7 * i];
+                    j <= j + rdata_1 + key_reg[i];
                 else if (PRGA)
                 begin
                     j <= j + rdata_1;
@@ -122,6 +124,12 @@ module rc4
 
     // output of cipher key 
     assign ckey = Sk;
+	 
+	 // value of cipher key
+	 assign key_reg[0] = key[7:0];
+	 assign key_reg[1] = key[15:8];
+	 assign key_reg[2] = key[23:16];
+	 assign key_reg[3] = key[31:24];
 
     ram SBox(
         .rst_n      (rst_n),
