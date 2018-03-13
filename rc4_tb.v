@@ -1,5 +1,5 @@
 `timescale 1 ns / 100 ps
-`define DELAY 1010
+`define DELAY 10
 
 module rc4_tb();
     reg clk, rst_n, start;
