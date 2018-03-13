@@ -10,6 +10,8 @@ module rc4_tb();
     wire [7:0] j_out;
     wire [7:0] k_out;
     wire [7:0] raddr_1, waddr_2, addr_3;
+    wire [7:0]  rdata_1, rdata_3;
+    wire [7:0]   wdata_2, wdata_3;
     wire [7:0] ckey;
     wire done;
 
@@ -27,6 +29,10 @@ module rc4_tb();
                     .raddr_1    (raddr_1),
                     .waddr_2    (waddr_2),
                     .addr_3     (addr_3),
+                    .rdata_1    (rdata_1),
+                    .rdata_3    (rdata_3),
+                    .wdata_2    (wdata_2),
+                    .wdata_3    (wdata_3),
                     .ckey       (ckey),
                     .done       (done)
     );

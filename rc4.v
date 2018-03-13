@@ -7,6 +7,8 @@ module rc4
     input [7:0] key_length,
 
     output [7:0]   raddr_1, waddr_2, addr_3,
+    output [7:0]   rdata_1, rdata_3,
+    output reg	    [7:0]   wdata_2, wdata_3,
     output [7:0] i_out,
     output [7:0] j_out,
     output [7:0] k_out,
@@ -22,8 +24,6 @@ module rc4
     reg             first_iter;
     reg			    wen_2, wen_3;
     reg	    [7:0]	Si, Sj, Sk;
-    reg	    [7:0]   wdata_2, wdata_3;
-    wire    [7:0]   rdata_1, rdata_3;
 
     // state
     parameter STEP_1 = 1;
@@ -45,7 +45,7 @@ module rc4
             PRGA    <= 1'b0;
             wen_2   <= 1'b0;
             wen_3   <= 1'b0;
-            first_iter <= 1'b0;
+            first_iter <= 1'b1;
 				done	<= 1'b0;
         end
         else 
@@ -69,6 +69,8 @@ module rc4
                         i <= 8'd0;      // i = 0 if KSA and = 1 if PRGA
                     else if (PRGA)
                         i <= 8'd1;
+                    
+                    first_iter <= 1'b0;
                 end
                 else
                 begin
@@ -83,8 +85,8 @@ module rc4
                     begin
                         k <= rdata_1 + rdata_3; // calculate k by Si + Sj
                     end
+                    i <= i + 1'b1;      // increase i for next iteration
                 end
-                i <= i + 1'b1;      // increase i for next iteration
                 state <= STEP_2;
             end
             STEP_2:

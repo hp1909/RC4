@@ -18,7 +18,7 @@ module ram(
     reg [7:0] mem [255:0];
 
     assign rdata_1 = mem[raddr_1];
-    assign rdata_3 = ~wen_3 ? mem[addr_3];
+    assign rdata_3 = mem[addr_3];
 
     always@(posedge clk)
     begin
