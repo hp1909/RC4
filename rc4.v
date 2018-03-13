@@ -6,6 +6,10 @@ module rc4
     input [31:0] key,
     input [7:0] key_length,
 
+    output [7:0]   raddr_1, waddr_2, addr_3,
+    output [7:0] i_out,
+    output [7:0] j_out,
+    output [7:0] k_out,
     output [7:0] ckey,
     output reg done
 );
@@ -19,7 +23,6 @@ module rc4
     reg			    wen_2, wen_3;
     reg	    [7:0]	Si, Sj, Sk;
     reg	    [7:0]   wdata_2, wdata_3;
-    wire    [7:0]   raddr_1, waddr_2, addr_3;
     wire    [7:0]   rdata_1, rdata_3;
 
     // state
@@ -71,7 +74,7 @@ module rc4
                 begin
                     wen_2 <= 1'b1;      // enable write for swap
                     wen_3 <= 1'b1;
-                    if (i == j)
+                    if (i != j)
                     begin
                         wdata_2 <= rdata_3; // i <- S[j]
                         wdata_3 <= rdata_1; // j <- S[i]
@@ -87,7 +90,7 @@ module rc4
             STEP_2:
             begin
                 if (KSA)
-                    j <= j + rdata_1 + key_reg[i];
+                    j <= j + rdata_1 + key_reg[(i % key_length)];
                 else if (PRGA)
                 begin
                     j <= j + rdata_1;
@@ -95,11 +98,12 @@ module rc4
                 end
                 wen_3 <= 1'b1;
                 
-                if (i == key_length)
+                if (i == (key_length + 1) && PRGA)
                 begin
                     done <= 1'b1;
                     i <= 8'd0;
                 end
+                state <= IDLE;
             end
         endcase
         end
@@ -111,7 +115,6 @@ module rc4
         end
         else if (PRGA == 1 && i == 255)
         begin
-            done <= 1'b1;
             KSA <= 1'b1;
             PRGA <= 1'b0;
         end
@@ -130,7 +133,9 @@ module rc4
 	 assign key_reg[1] = key[15:8];
 	 assign key_reg[2] = key[23:16];
 	 assign key_reg[3] = key[31:24];
-
+     assign i_out = i;
+     assign j_out = j;
+     assign k_out = k;
     ram SBox(
         .rst_n      (rst_n),
         .clk        (clk),
