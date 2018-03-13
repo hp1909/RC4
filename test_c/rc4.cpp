@@ -2,24 +2,24 @@
 
 int main()
 {
-    char key_length = 4;
-    char key[] = {64, 63, 62, 61};
-    char sbox[256] = {0};
+    unsigned char key_length = 4;
+    unsigned char key[] = {64, 63, 62, 61};
+    unsigned char sBox[256] = {0};
 
-    int i = 0; 
-    for (i = 0; i < 256; i++)
+    unsigned char i = 0; 
+    for (i = 0; i <= 255; i++)
     {
-        sbox[i] = i;
+        sBox[i] = i;
     }
 
     // KSA
-    int j = 0;
-    for (i = 0; i < 255; i++) 
+    unsigned char j = 0;
+    for (i = 0; i <= 255; i++) 
     {
-        j = j + sbox[i] + key[i];
-        int temp = sbox[i];
-        sbox[i] = sbox[j];
-        sbox[j] = temp;
+        j = (j + sBox[i] + key[i]) % 256;
+        int temp = sBox[i];
+        sBox[i] = sBox[j];
+        sBox[j] = temp;
     }
 
     // PRGA
@@ -27,11 +27,11 @@ int main()
     printf("key value: \n");
     for (i = 0; i < key_length; i++) 
     {
-        j = j + sbox[i];
-        int temp = sbox[i];
-        sbox[i] = sbox[j];
-        sbox[j] = temp;
-        int sk = sbox[i] + sbox[j];
+        j = j + sBox[i];
+        int temp = sBox[i];
+        sBox[i] = sBox[j];
+        sBox[j] = temp;
+        int sk = sBox[i] + sBox[j];
         printf("%d\n", sk);
     }
     return 0;
