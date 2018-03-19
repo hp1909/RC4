@@ -1,8 +1,18 @@
+///////////////////////////////////////////////
+// NAME; 3 ports RAM Block
+// Developed by; Honag Phuc
+// Date;
+// Description; This is RAM block has 3 ports;
+// Port 1: Read-only (rdadrr, rddata,..)
+// port 2: Write only
+// Port 3: Read-Write
+
 module ram(
             input rst_n,
             input clk,
-            input wen_2,
-            input wen_3,
+            // input wen_2,
+            // input wen_3,
+            input wen,
 
             input [7:0] raddr_1,
             input [7:0] waddr_2,
@@ -281,12 +291,12 @@ module ram(
             mem[254]<=254;
             mem[255]<=255;
         end
-        else if (wen_2)
+        else if (wen)
         begin
             mem[waddr_2] <= wdata_2;
-        end
-        else if (wen_3)
-        begin
+        // end
+        // else if (wen_3)
+        // begin
             mem[addr_3] <= wdata_3;
         end 
     end

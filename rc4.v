@@ -9,6 +9,8 @@ module rc4
     output [7:0]   raddr_1, waddr_2, addr_3,
     output [7:0]   rdata_1, rdata_3,
     output reg	    [7:0]   wdata_2, wdata_3,
+    output reg wen,
+    output reg 	[2:0]   state,
     output [7:0] i_out,
     output [7:0] j_out,
     output [7:0] k_out,
@@ -20,9 +22,10 @@ module rc4
 
     reg [7:0] i, j, k, n;
     reg PRGA_ready, PRGA, KSA;
-    reg 	[2:0]   state;
+    reg [7:0] temp_addr;
     reg             first_iter;
-    reg			    wen_2, wen_3;
+    // reg			    wen_2, wen_3;
+    // reg wen;
     reg	    [7:0]	Si, Sj, Sk;
 
     // state
@@ -43,8 +46,9 @@ module rc4
             Sk      <= 8'd0;
             KSA     <= 1'b1;
             PRGA    <= 1'b0;
-            wen_2   <= 1'b0;
-            wen_3   <= 1'b0;
+            temp_addr <= 8'd0;
+            // wen_2   <= 1'b0;
+            // wen_3   <= 1'b0;
             first_iter <= 1'b1;
 				done	<= 1'b0;
         end
@@ -57,8 +61,9 @@ module rc4
                     state <= STEP_1;
                 else 
                     state <= IDLE;
-                wen_2 <= 1'b0;
-                wen_3 <= 1'b0;
+                    wen <= 1'b0;
+                // wen_2 <= 1'b0;
+                // wen_3 <= 1'b0;
                 Sj <= rdata_3;
             end
             STEP_1:
@@ -74,8 +79,9 @@ module rc4
                 end
                 else
                 begin
-                    wen_2 <= 1'b1;      // enable write for swap
-                    wen_3 <= 1'b1;
+                    // wen_2 <= 1'b1;      // enable write for swap
+                    // wen_3 <= 1'b1;
+                    wen <= 1'b1;
                     if (i != j)
                     begin
                         wdata_2 <= rdata_3; // i <- S[j]
@@ -85,6 +91,7 @@ module rc4
                     begin
                         k <= rdata_1 + rdata_3; // calculate k by Si + Sj
                     end
+                    temp_addr <= i;
                     i <= i + 1'b1;      // increase i for next iteration
                 end
                 state <= STEP_2;
@@ -92,13 +99,16 @@ module rc4
             STEP_2:
             begin
                 if (KSA)
-                    j <= j + rdata_1 + key_reg[(i % key_length)];
+                    if (j == temp_addr + 1)
+                        j <= j + wdata_3 + key_reg[(i % key_length)];
+                    else
+                        j <= j + rdata_1 + key_reg[(i % key_length)];
                 else if (PRGA)
                 begin
                     j <= j + rdata_1;
                     Sk <= rdata_1;
                 end
-                wen_3 <= 1'b1;
+                wen <= 1'b0;
                 
                 if (i == (key_length + 1) && PRGA)
                 begin
@@ -123,8 +133,8 @@ module rc4
     end
     
     // address for every step 
-    assign raddr_1 = STEP_1 ? i : STEP_2 ? k : 0;
-    assign waddr_2 = i;
+    assign raddr_1 = (STEP_2 && PRGA) ? k : i;
+    assign waddr_2 = temp_addr;
     assign addr_3 = j;
 
     // output of cipher key 
@@ -141,8 +151,9 @@ module rc4
     ram SBox(
         .rst_n      (rst_n),
         .clk        (clk),
-        .wen_2      (wen_2),
-        .wen_3      (wen_3),
+        // .wen_2      (wen_2),
+        // .wen_3      (wen_3),
+        .wen        (wen),
         .raddr_1    (raddr_1),
         .waddr_2    (waddr_2),
         .addr_3     (addr_3),

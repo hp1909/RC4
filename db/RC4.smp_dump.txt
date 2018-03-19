@@ -1,5 +1,5 @@
 
-State Machine - |rc4_tb|rc4:rc4_test|state
+State Machine - |rc4|state
 Name state.000 state.STEP_2 state.STEP_1 
 state.000 0 0 0 
 state.STEP_1 1 0 1 
