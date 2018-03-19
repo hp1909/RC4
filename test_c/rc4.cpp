@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <fstream>
+
+using namespace std;
 
 int main()
 {
@@ -37,8 +40,8 @@ int main()
         int temp = sBox[i];
         sBox[i] = sBox[j];
         sBox[j] = temp;
-        int sk = sBox[i] + sBox[j];
-        printf("%d\n", sk);
+        int sk = (sBox[i] + sBox[j]) % 256;
+        printf("%d\n", sBox[sk]);
     }
     return 0;
 }
