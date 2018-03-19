@@ -46,7 +46,7 @@ module rc4
             wen_2   <= 1'b0;
             wen_3   <= 1'b0;
             first_iter <= 1'b1;
-				done	<= 1'b0;
+			done	<= 1'b0;
         end
         else 
         begin
