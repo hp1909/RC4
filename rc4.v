@@ -64,7 +64,7 @@ module rc4
                     wen <= 1'b0;
                 // wen_2 <= 1'b0;
                 // wen_3 <= 1'b0;
-                Sj <= rdata_3;
+                // Sj <= rdata_3;
             end
             STEP_1:
             begin
@@ -73,8 +73,16 @@ module rc4
                     if (KSA)
                         i <= 8'd0;      // i = 0 if KSA and = 1 if PRGA
                     else if (PRGA)
+                    begin
                         i <= 8'd1;
-                    
+                        wen <= 1'b1;
+                        if (i != j)
+                        begin
+                            wdata_2 <= rdata_3; // i <- S[j]
+                            wdata_3 <= rdata_1; // j <- S[i]
+                            temp_addr <= i;
+                        end 
+                    end
                     first_iter <= 1'b0;
                 end
                 else
@@ -87,9 +95,9 @@ module rc4
                         wdata_2 <= rdata_3; // i <- S[j]
                         wdata_3 <= rdata_1; // j <- S[i]
                     end 
-                    if (PRGA)
+                    if (PRGA && i >= 1)
                     begin
-                        k <= rdata_1 + rdata_3; // calculate k by Si + Sj
+                        k <= Sk + rdata_3; // calculate k by Si + Sj
                     end
                     temp_addr <= i;
                     i <= i + 1'b1;      // increase i for next iteration
@@ -105,12 +113,15 @@ module rc4
                         j <= j + rdata_1 + key_reg[(i % key_length)];
                 else if (PRGA)
                 begin
-                    j <= j + rdata_1;
+                    if (i == 1)
+                        j <= 8'd0 + rdata_1;
+                    else
+                        j <= j + rdata_1;
                     Sk <= rdata_1;
                 end
                 wen <= 1'b0;
                 
-                if (i == (key_length + 1) && PRGA)
+                if (i == (key_length + 2) && PRGA)
                 begin
                     done <= 1'b1;
                     i <= 8'd0;
@@ -126,16 +137,17 @@ module rc4
         begin
             PRGA <= 1'b1;
             KSA  <= 1'b0;
+            first_iter <= 1'b1;
         end
     end
     
     // address for every step 
-    assign raddr_1 = i;
+    assign raddr_1 = (PRGA && state == STEP_1 && i >= 2 && i < 255) ? k : i;
     assign waddr_2 = temp_addr;
     assign addr_3 = j;
 
     // output of cipher key 
-    assign ckey = Sk;
+    assign ckey = PRGA ? ((~wen && state == STEP_1 && i > 1 && i < 255) ? rdata_1 : ckey) : 8'd0;
 	 
 	 // value of cipher key
 	 assign key_reg[0] = key[7:0];
