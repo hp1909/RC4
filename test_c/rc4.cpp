@@ -68,7 +68,7 @@ int main()
     j = 0;
     printf("key value: \n");
     fileOut << "Key value: " << endl;
-    for (i = 0; i < keyLength; i++) 
+    for (i = 1; i < keyLength + 1; i++) 
     {
         j = j + sBox[i];
         int temp = sBox[i];
