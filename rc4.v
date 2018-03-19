@@ -11,6 +11,7 @@ module rc4
     output reg	    [7:0]   wdata_2, wdata_3,
     output reg wen,
     output reg 	[2:0]   state,
+    output reg PRGA, KSA,
     output [7:0] i_out,
     output [7:0] j_out,
     output [7:0] k_out,
@@ -21,7 +22,6 @@ module rc4
 	 wire [7:0] key_reg [3:0];
 
     reg [7:0] i, j, k, n;
-    reg PRGA_ready, PRGA, KSA;
     reg [7:0] temp_addr;
     reg             first_iter;
     // reg			    wen_2, wen_3;
@@ -114,8 +114,10 @@ module rc4
                 begin
                     done <= 1'b1;
                     i <= 8'd0;
+                    state <= IDLE;
                 end
-                state <= IDLE;
+                else
+                    state <= STEP_1;
             end
         endcase
         end
@@ -125,15 +127,10 @@ module rc4
             PRGA <= 1'b1;
             KSA  <= 1'b0;
         end
-        else if (PRGA == 1 && i == 255)
-        begin
-            KSA <= 1'b1;
-            PRGA <= 1'b0;
-        end
     end
     
     // address for every step 
-    assign raddr_1 = (STEP_2 && PRGA) ? k : i;
+    assign raddr_1 = i;
     assign waddr_2 = temp_addr;
     assign addr_3 = j;
 

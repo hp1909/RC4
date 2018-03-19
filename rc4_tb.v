@@ -12,6 +12,7 @@ module rc4_tb();
     wire [7:0] raddr_1, waddr_2, addr_3;
     wire [7:0]  rdata_1, rdata_3;
     wire [7:0]   wdata_2, wdata_3;
+    wire PRGA, KSA;
     wire wen;
     wire [2:0] state;
     wire [7:0] ckey;
@@ -25,6 +26,8 @@ module rc4_tb();
                     .key        (key),
                     .key_length (key_length),
                     .state      (state),
+                    .PRGA       (PRGA),
+                    .KSA        (KSA),
                     //output
                     .wen        (wen),
                     .j_out      (j_out),
