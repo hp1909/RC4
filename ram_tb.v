@@ -9,7 +9,7 @@ module ram_tb();
     reg [7:0] raddr_1;
     reg [7:0] waddr_2;
     reg [7:0] addr_3;
-
+    
     reg [7:0] wdata_2;
     reg [7:0] wdata_3;
 

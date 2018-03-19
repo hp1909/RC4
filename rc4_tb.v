@@ -12,6 +12,8 @@ module rc4_tb();
     wire [7:0] raddr_1, waddr_2, addr_3;
     wire [7:0]  rdata_1, rdata_3;
     wire [7:0]   wdata_2, wdata_3;
+    wire wen;
+    wire [2:0] state;
     wire [7:0] ckey;
     wire done;
 
@@ -22,7 +24,9 @@ module rc4_tb();
                     .start      (start),
                     .key        (key),
                     .key_length (key_length),
+                    .state      (state),
                     //output
+                    .wen        (wen),
                     .j_out      (j_out),
                     .k_out      (k_out),
                     .i_out      (i_out),
