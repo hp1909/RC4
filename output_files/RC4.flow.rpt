@@ -1,5 +1,5 @@
 Flow report for RC4
-Sun Mar 18 16:32:38 2018
+Tue Mar 20 10:07:03 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Mar 18 16:32:31 2018       ;
+; Flow Status                        ; Successful - Tue Mar 20 10:06:55 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; RC4                                         ;
-; Top-level Entity Name              ; rc4                                         ;
+; Top-level Entity Name              ; rc4_inst                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 4,071 / 114,480 ( 4 % )                     ;
-;     Total combinational functions  ; 3,502 / 114,480 ( 3 % )                     ;
-;     Dedicated logic registers      ; 2,105 / 114,480 ( 2 % )                     ;
-; Total registers                    ; 2105                                        ;
-; Total pins                         ; 132 / 529 ( 25 % )                          ;
+; Total logic elements               ; 8,133 / 114,480 ( 7 % )                     ;
+;     Total combinational functions  ; 7,104 / 114,480 ( 6 % )                     ;
+;     Dedicated logic registers      ; 2,112 / 114,480 ( 2 % )                     ;
+; Total registers                    ; 2112                                        ;
+; Total pins                         ; 59 / 529 ( 11 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                       ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/18/2018 16:31:03 ;
+; Start date & time ; 03/20/2018 09:57:05 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; RC4                 ;
 +-------------------+---------------------+
@@ -75,16 +75,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 220314649435377.152135826309272        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 220314649435377.152150742413096        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; rc4         ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; rc4         ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; rc4         ; Top        ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; rc4_inst    ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; rc4_inst    ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; rc4_inst    ; Top        ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
+; TOP_LEVEL_ENTITY                    ; rc4_inst                               ; RC4           ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
 
@@ -93,11 +94,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:20     ; 1.0                     ; 743 MB              ; 00:00:32                           ;
-; Fitter                    ; 00:01:00     ; 1.1                     ; 1884 MB             ; 00:01:37                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 617 MB              ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:06     ; 1.1                     ; 827 MB              ; 00:00:05                           ;
-; Total                     ; 00:01:31     ; --                      ; --                  ; 00:02:18                           ;
+; Analysis & Synthesis      ; 00:00:25     ; 1.0                     ; 773 MB              ; 00:00:38                           ;
+; Fitter                    ; 00:09:17     ; 1.0                     ; 1937 MB             ; 00:10:19                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 628 MB              ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:06     ; 1.7                     ; 877 MB              ; 00:00:08                           ;
+; Total                     ; 00:09:52     ; --                      ; --                  ; 00:11:09                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
