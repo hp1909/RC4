@@ -1,12 +1,15 @@
-///////////////////////////////////////////////
-// NAME; 3 ports RAM Block
-// Developed by; Honag Phuc
-// Date;
-// Description; This is RAM block has 3 ports;
-// Port 1: Read-only (rdadrr, rddata,..)
-// port 2: Write only
-// Port 3: Read-Write
-
+/** ************************************************************************************
+*   Module: ram_new_design.v
+*   Author: Hoang Phuc
+*   Date: Mar 22th, 2018
+*   
+*   Function:   This module is the memory has 4 ports
+*               +   1 read-only port for read data from address i
+*               +   1 write-only port for write data to address j
+*               +   1 read-write port
+*               +   1 read-only port for read data from address k
+*   
+** ************************************************************************************/
 module ram_new_design
 #(parameter NUMS_OF_BYTES = 4)
 (
@@ -40,7 +43,7 @@ module ram_new_design
     begin
         if (~rst_n)
         begin
-            mem[0]<=0;
+            /* mem[0]<=0;
             mem[1]<=1;
             mem[2]<=2;
             mem[3]<=3;
@@ -295,7 +298,10 @@ module ram_new_design
             mem[252]<=252;
             mem[253]<=253;
             mem[254]<=254;
-            mem[255]<=255;
+            mem[255]<=255; */
+            for (i = 0; i < 256; i = i + 1) begin
+                mem[i] <= i;
+            end
         end
         else if (wen)
         begin

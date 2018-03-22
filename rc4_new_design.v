@@ -1,6 +1,24 @@
-/** 
-*   Module 
-*/
+/** ************************************************************************************
+*   Module: RC4 - New Design for k output
+*   Author: Hoang Phuc
+*   Date:   Mar 22th, 2018
+*   
+*   Function:   This design is slightly different with the original one.
+*               It focuses on the output of address k in 1 iteration by
+*               adding 1 read-only port for SBOX. 
+*               Other step and state machine is the same with the original one.
+*   Input:      
+*               clk         :   1 bit
+*               rst_n       :   1 bit       - Reset when equal to 0.
+*               start       :   1 bit       - When value is 1, it starts RC4. 
+*               key         :   n * 8 bits  - Input key for generate cipher key.
+*                                             n is the number of cipher key's bytes.
+*               key_length  :   8 bit       - Key length has value from 1 --> 256 bytes.
+*   Output:     
+*               ckey        :   n * 8 bits  - n is the number of cipher key's bytes.
+*               done        :   1 bit       - When finish. Done has value 1.
+*               
+** ************************************************************************************/
 
 module rc4_new_design
 #(parameter NUMS_OF_BYTES = 4)
@@ -161,8 +179,6 @@ module rc4_new_design
     ram_new_design #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) SBox (
         .rst_n      (rst_n),
         .clk        (clk),
-        // .wen_2      (wen_2),
-        // .wen_3      (wen_3),
         .wen        (wen),
         .raddr_1    (raddr_1),
         .waddr_2    (waddr_2),
