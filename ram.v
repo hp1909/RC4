@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////
-// NAME; 3 ports RAM Block
-// Developed by; Honag Phuc
-// Date;
+// NAME; 3-ports RAM Block
+// Author: Hoang Phuc
+// Date: 
 // Description; This is RAM block has 3 ports;
 // Port 1: Read-only (rdadrr, rddata,..)
 // port 2: Write only

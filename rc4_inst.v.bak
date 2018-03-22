@@ -1,0 +1,12 @@
+module rc4_inst(
+						input CLOCK_50,
+						input start,
+						input rst_n,
+						input [31:0] key,
+						input [7:0] keyLength,
+						
+						output [7:0] ckey,
+						output [7:0] done
+);
+	
+endmodule
