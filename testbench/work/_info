@@ -9,37 +9,37 @@ z2
 cModel Technology
 dC:/intelFPGA_lite/17.1
 vram
-Z0 !s110 1521686210
+Z0 !s110 1521701447
 !i10b 1
-!s100 L3ad?Y4^kdo_[W]Y3n18O2
-IRlmA][e5gLGb6az01z>ag3
+!s100 BH7YfC2lF4:V_:P:gKH3U1
+IZ`M^PK>9lC>@aTT5^H>2^3
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/testbench
-w1521684056
+Z3 w1521701422
 8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram.v
 FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram.v
-Z3 L0 10
+L0 10
 Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1521686210.000000
+Z5 !s108 1521701447.000000
 !s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram.v|
 !i113 1
 Z6 o-work work
 Z7 tCvgOpt 0
 vram_new_design
-R0
+!s110 1521701448
 !i10b 1
-!s100 aFm3PSe`X7[ZI^MP?8S]b2
-IS7RZ<K8Zk_UKJi_QgYE`E0
+!s100 0OJ@5<nh_=^gM4@d<1e?o2
+I[1fCbQLN<KGl:;NRSn2Rl1
 R1
 R2
-w1521683718
+R3
 8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram_new_design.v
 FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram_new_design.v
-R3
+L0 13
 R4
 r1
 !s85 0
@@ -95,14 +95,14 @@ R7
 vrc4_new_design
 R0
 !i10b 1
-!s100 HYzz4o_E>^Hz0bKN`HW8^2
-IOK]CG@@T;Hi?L>h55`HAV0
+!s100 @;h@T<KYLLPC3m;bkb?lP0
+II:1W5d3[b]^EI1ZSIjoR92
 R1
 R2
-w1521686081
+R3
 8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v
 FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v
-L0 1
+L0 23
 R4
 r1
 !s85 0
@@ -128,7 +128,7 @@ R4
 r1
 !s85 0
 31
-!s108 1521686209.000000
+R5
 !s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_tb.v|
 !i113 1
