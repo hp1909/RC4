@@ -1,6 +1,6 @@
 /** ************************************************************************************
 *   Module: ram_new_design.v
-*   Author: Hoang Phuc
+*   Author: Hoang Phuc Nguyen
 *   Date: Mar 22th, 2018
 *   
 *   Function:   This module is the memory has 4 ports
@@ -8,6 +8,10 @@
 *               +   1 write-only port for write data to address j
 *               +   1 read-write port
 *               +   1 read-only port for read data from address k
+*
+*   Note:
+*               + Because we use 2 write port for swapping so we 
+*                 need 1 write enable signal.
 *   
 ** ************************************************************************************/
 module ram_new_design
@@ -15,8 +19,6 @@ module ram_new_design
 (
             input rst_n,
             input clk,
-            // input wen_2,
-            // input wen_3,
             input wen,
 
             input [7:0] raddr_1,
@@ -54,7 +56,7 @@ module ram_new_design
         end 
     end
 
-    always@(*)
+    always@(*)  // Act as combinational logic circuit
     begin
         if (rst_n) begin
             for (i = 0; i < NUMS_OF_BYTES; i = i + 1) begin
