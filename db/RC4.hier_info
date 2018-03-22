@@ -42,22 +42,15 @@ keyLength[4] => keyLength[4].IN1
 keyLength[5] => keyLength[5].IN1
 keyLength[6] => keyLength[6].IN1
 keyLength[7] => keyLength[7].IN1
-ckey[0] <= rc4:inst.ckey
-ckey[1] <= rc4:inst.ckey
-ckey[2] <= rc4:inst.ckey
-ckey[3] <= rc4:inst.ckey
-ckey[4] <= rc4:inst.ckey
-ckey[5] <= rc4:inst.ckey
-ckey[6] <= rc4:inst.ckey
-ckey[7] <= rc4:inst.ckey
-done[0] <= rc4:inst.done
-done[1] <= rc4:inst.done
-done[2] <= rc4:inst.done
-done[3] <= rc4:inst.done
-done[4] <= rc4:inst.done
-done[5] <= rc4:inst.done
-done[6] <= rc4:inst.done
-done[7] <= rc4:inst.done
+ckey[0] << rc4:inst.ckey
+ckey[1] << rc4:inst.ckey
+ckey[2] << rc4:inst.ckey
+ckey[3] << rc4:inst.ckey
+ckey[4] << rc4:inst.ckey
+ckey[5] << rc4:inst.ckey
+ckey[6] << rc4:inst.ckey
+ckey[7] << rc4:inst.ckey
+done << rc4:inst.done
 
 
 |rc4_inst|rc4:inst

@@ -2,6 +2,7 @@
 `define DELAY 10
 
 module rc4_tb();
+parameter NUMS_OF_BYTES = 4;
     reg clk, rst_n, start;
     reg [31:0] key;
     reg [7:0] key_length;
@@ -15,10 +16,12 @@ module rc4_tb();
     // wire PRGA, KSA;
     // wire wen;
     // wire [2:0] state;
+    wire [NUMS_OF_BYTES * 8 - 1:0] k_addr;
+    wire [NUMS_OF_BYTES * 8 - 1:0] k_data;
     wire [7:0] ckey;
     wire done;
 
-    rc4 rc4_test(
+    rc4_new_design #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) rc4_test(
                     //input
                     .clk        (clk),
                     .rst_n      (rst_n),
@@ -40,6 +43,8 @@ module rc4_tb();
                     // .rdata_3    (rdata_3),
                     // .wdata_2    (wdata_2),
                     // .wdata_3    (wdata_3),
+                    .k_addr     (k_addr),
+                    .k_data     (k_data),
                     .ckey       (ckey),
                     .done       (done)
     );

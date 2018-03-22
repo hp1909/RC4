@@ -1,5 +1,5 @@
-Analysis & Synthesis report for RC4
-Tue Mar 20 09:57:30 2018
+Analysis & Elaboration report for RC4
+Thu Mar 22 11:34:54 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -7,23 +7,11 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |rc4_inst|rc4:inst|state
-  9. User-Specified and Inferred Latches
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: rc4:inst
- 14. Parameter Settings for Inferred Entity Instance: rc4:inst|lpm_divide:Mod0
- 15. Port Connectivity Checks: "rc4:inst"
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: rc4:inst
+  5. Analysis & Elaboration Settings
+  6. Analysis & Elaboration Messages
 
 
 
@@ -47,27 +35,55 @@ refer to the applicable agreement for further details.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
+; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Mar 20 09:57:29 2018       ;
+; Analysis & Elaboration Status      ; Successful - Thu Mar 22 11:34:54 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; RC4                                         ;
 ; Top-level Entity Name              ; rc4_inst                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 7,104                                       ;
-;     Total combinational functions  ; 7,104                                       ;
-;     Dedicated logic registers      ; 2,112                                       ;
-; Total registers                    ; 2112                                        ;
-; Total pins                         ; 59                                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rc4:inst ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; STEP_1         ; 1     ; Signed Integer               ;
+; STEP_2         ; 2     ; Signed Integer               ;
+; IDLE           ; 0     ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                        ;
+; Analysis & Elaboration Settings                                                                                      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
@@ -152,515 +168,20 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 6           ;
-;                            ;             ;
-; Average used               ; 1.01        ;
-; Maximum used               ; 6           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
-;     Processor 3            ;   0.2%      ;
-;     Processor 4            ;   0.2%      ;
-;     Processor 5            ;   0.2%      ;
-;     Processor 6            ;   0.2%      ;
-+----------------------------+-------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                  ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                              ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
-; ram.v                            ; yes             ; User Verilog HDL File        ; C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram.v                      ;         ;
-; rc4.v                            ; yes             ; User Verilog HDL File        ; C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v                      ;         ;
-; rc4_inst.v                       ; yes             ; User Verilog HDL File        ; C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v                 ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf                                     ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc                                    ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                ;         ;
-; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc                                     ;         ;
-; db/lpm_divide_q9m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/lpm_divide_q9m.tdf      ;         ;
-; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/sign_div_unsign_fkh.tdf ;         ;
-; db/alt_u_div_i4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/alt_u_div_i4f.tdf       ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/add_sub_8pc.tdf         ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 7,104       ;
-;                                             ;             ;
-; Total combinational functions               ; 7104        ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 6700        ;
-;     -- 3 input functions                    ; 349         ;
-;     -- <=2 input functions                  ; 55          ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 7016        ;
-;     -- arithmetic mode                      ; 88          ;
-;                                             ;             ;
-; Total registers                             ; 2112        ;
-;     -- Dedicated logic registers            ; 2112        ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 59          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; rst_n~input ;
-; Maximum fan-out                             ; 2356        ;
-; Total fan-out                               ; 36402       ;
-; Average fan-out                             ; 3.90        ;
-+---------------------------------------------+-------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                            ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                ; Entity Name         ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |rc4_inst                                 ; 7104 (0)            ; 2112 (0)                  ; 0           ; 0            ; 0       ; 0         ; 59   ; 0            ; |rc4_inst                                                                                                          ; rc4_inst            ; work         ;
-;    |rc4:inst|                             ; 7104 (206)          ; 2112 (64)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |rc4_inst|rc4:inst                                                                                                 ; rc4                 ; work         ;
-;       |lpm_divide:Mod0|                   ; 74 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |rc4_inst|rc4:inst|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_q9m:auto_generated|  ; 74 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |rc4_inst|rc4:inst|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m      ; work         ;
-;             |sign_div_unsign_fkh:divider| ; 74 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |rc4_inst|rc4:inst|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh ; work         ;
-;                |alt_u_div_i4f:divider|    ; 74 (74)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |rc4_inst|rc4:inst|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f       ; work         ;
-;       |ram:SBox|                          ; 6824 (6824)         ; 2048 (2048)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |rc4_inst|rc4:inst|ram:SBox                                                                                        ; ram                 ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+--------------------------------------------------------+
-; State Machine - |rc4_inst|rc4:inst|state               ;
-+--------------+-----------+--------------+--------------+
-; Name         ; state.000 ; state.STEP_2 ; state.STEP_1 ;
-+--------------+-----------+--------------+--------------+
-; state.000    ; 0         ; 0            ; 0            ;
-; state.STEP_1 ; 1         ; 0            ; 1            ;
-; state.STEP_2 ; 1         ; 1            ; 0            ;
-+--------------+-----------+--------------+--------------+
-
-
-+---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; rc4:inst|ckey[0]                                   ; rc4:inst|ckey       ; yes                    ;
-; rc4:inst|ckey[1]                                   ; rc4:inst|ckey       ; yes                    ;
-; rc4:inst|ckey[2]                                   ; rc4:inst|ckey       ; yes                    ;
-; rc4:inst|ckey[3]                                   ; rc4:inst|ckey       ; yes                    ;
-; rc4:inst|ckey[4]                                   ; rc4:inst|ckey       ; yes                    ;
-; rc4:inst|ckey[5]                                   ; rc4:inst|ckey       ; yes                    ;
-; rc4:inst|ckey[6]                                   ; rc4:inst|ckey       ; yes                    ;
-; rc4:inst|ckey[7]                                   ; rc4:inst|ckey       ; yes                    ;
-; Number of user-specified and inferred latches = 8  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; rc4:inst|state~4                      ; Lost fanout        ;
-; Total Number of Removed Registers = 1 ;                    ;
-+---------------------------------------+--------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 2112  ;
-; Number of registers using Synchronous Clear  ; 1042  ;
-; Number of registers using Synchronous Load   ; 1024  ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2104  ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|k[6]                 ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|Sk[6]                ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|temp_addr[0]         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |rc4_inst|rc4:inst|PRGA                 ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |rc4_inst|rc4:inst|wdata_2[4]           ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[255][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[254][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[253][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[252][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[251][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[250][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[249][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[248][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[247][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[246][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[245][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[244][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[243][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[242][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[241][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[240][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[239][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[238][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[237][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[236][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[235][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[234][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[233][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[232][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[231][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[230][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[229][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[228][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[227][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[226][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[225][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[224][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[223][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[222][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[221][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[220][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[219][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[218][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[217][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[216][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[215][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[214][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[213][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[212][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[211][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[210][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[209][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[208][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[207][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[206][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[205][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[204][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[203][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[202][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[201][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[200][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[199][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[198][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[197][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[196][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[195][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[194][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[193][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[192][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[191][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[190][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[189][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[188][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[187][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[186][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[185][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[184][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[183][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[182][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[181][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[180][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[179][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[178][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[177][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[176][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[175][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[174][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[173][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[172][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[171][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[170][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[169][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[168][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[167][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[166][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[165][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[164][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[163][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[162][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[161][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[160][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[159][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[158][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[157][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[156][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[155][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[154][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[153][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[152][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[151][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[150][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[149][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[148][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[147][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[146][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[145][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[144][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[143][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[142][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[141][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[140][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[139][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[138][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[137][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[136][3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[135][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[134][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[133][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[132][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[131][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[130][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[129][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[128][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[127][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[126][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[125][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[124][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[123][2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[122][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[121][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[120][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[119][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[118][6] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[117][7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[116][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[115][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[114][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[113][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[112][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[111][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[110][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[109][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[108][4] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[107][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[106][5] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[105][1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[104][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[103][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[102][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[101][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[100][0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[99][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[98][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[97][5]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[96][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[95][5]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[94][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[93][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[92][6]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[91][7]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[90][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[89][6]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[88][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[87][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[86][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[85][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[84][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[83][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[82][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[81][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[80][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[79][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[78][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[77][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[76][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[75][5]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[74][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[73][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[72][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[71][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[70][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[69][1]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[68][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[67][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[66][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[65][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[64][1]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[63][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[62][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[61][5]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[60][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[59][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[58][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[57][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[56][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[55][6]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[54][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[53][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[52][6]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[51][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[50][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[49][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[48][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[47][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[46][5]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[45][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[44][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[43][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[42][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[41][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[40][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[39][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[38][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[37][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[36][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[35][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[34][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[33][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[32][1]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[31][1]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[30][7]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[29][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[28][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[27][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[26][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[25][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[24][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[23][6]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[22][5]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[21][1]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[20][4]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[19][1]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[18][2]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[17][6]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[16][7]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[15][6]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[14][0]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[13][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[12][5]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[11][3]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[10][6]  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[9][3]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[8][1]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[7][6]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[6][6]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[5][5]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[4][4]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[3][1]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[2][2]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[1][3]   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|ram:SBox|mem[0][2]   ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; Yes        ; |rc4_inst|rc4:inst|j[5]                 ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; Yes        ; |rc4_inst|rc4:inst|i[4]                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |rc4_inst|rc4:inst|Mux7                 ;
-; 256:1              ; 8 bits    ; 1360 LEs      ; 1360 LEs             ; 0 LEs                  ; No         ; |rc4_inst|rc4:inst|ram:SBox|Mux7        ;
-; 256:1              ; 8 bits    ; 1360 LEs      ; 1360 LEs             ; 0 LEs                  ; No         ; |rc4_inst|rc4:inst|ram:SBox|Mux11       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-
-
-+-------------------------------------------------------+
-; Parameter Settings for User Entity Instance: rc4:inst ;
-+----------------+-------+------------------------------+
-; Parameter Name ; Value ; Type                         ;
-+----------------+-------+------------------------------+
-; STEP_1         ; 1     ; Signed Integer               ;
-; STEP_2         ; 2     ; Signed Integer               ;
-; IDLE           ; 0     ; Signed Integer               ;
-+----------------+-------+------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: rc4:inst|lpm_divide:Mod0 ;
-+------------------------+----------------+---------------------------------+
-; Parameter Name         ; Value          ; Type                            ;
-+------------------------+----------------+---------------------------------+
-; LPM_WIDTHN             ; 8              ; Untyped                         ;
-; LPM_WIDTHD             ; 8              ; Untyped                         ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                         ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                         ;
-; LPM_PIPELINE           ; 0              ; Untyped                         ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                         ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                         ;
-; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                         ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                         ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                         ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                      ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                    ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                    ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                  ;
-+------------------------+----------------+---------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "rc4:inst"                                                                                                                                                             ;
-+------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                                               ;
-+------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; done ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (8 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
-+------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 59                          ;
-; cycloneiii_ff         ; 2112                        ;
-;     ENA               ; 40                          ;
-;     ENA SCLR          ; 1040                        ;
-;     ENA SLD           ; 1024                        ;
-;     SCLR              ; 2                           ;
-;     plain             ; 6                           ;
-; cycloneiii_lcell_comb ; 7105                        ;
-;     arith             ; 88                          ;
-;         2 data inputs ; 18                          ;
-;         3 data inputs ; 70                          ;
-;     normal            ; 7017                        ;
-;         0 data inputs ; 9                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 28                          ;
-;         3 data inputs ; 279                         ;
-;         4 data inputs ; 6700                        ;
-;                       ;                             ;
-; Max LUT depth         ; 23.10                       ;
-; Average LUT depth     ; 8.39                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:13     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Mar 20 09:57:04 2018
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RC4 -c RC4
+    Info: Processing started: Thu Mar 22 11:34:43 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RC4 -c RC4 --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file rc4_new_design.v
+    Info (12023): Found entity 1: rc4_new_design File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ram_new_design.v
+    Info (12023): Found entity 1: ram_new_design File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram_new_design.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file rc4_tb.v
     Info (12023): Found entity 1: rc4_tb File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_tb.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file ram.v
@@ -669,81 +190,24 @@ Info (12021): Found 1 design units, including 1 entities, in source file rc4.v
     Info (12023): Found entity 1: rc4 File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file rc4_inst.v
     Info (12023): Found entity 1: rc4_inst File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at rc4.v(149): created implicit net for "i_out" File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 149
-Warning (10236): Verilog HDL Implicit Net warning at rc4.v(150): created implicit net for "j_out" File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 150
-Warning (10236): Verilog HDL Implicit Net warning at rc4.v(151): created implicit net for "k_out" File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 151
+Warning (10222): Verilog HDL Parameter Declaration warning at rc4_new_design.v(32): Parameter Declaration in module "rc4_new_design" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v Line: 32
+Warning (10222): Verilog HDL Parameter Declaration warning at rc4_new_design.v(33): Parameter Declaration in module "rc4_new_design" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v Line: 33
+Warning (10222): Verilog HDL Parameter Declaration warning at rc4_new_design.v(34): Parameter Declaration in module "rc4_new_design" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v Line: 34
 Info (12127): Elaborating entity "rc4_inst" for the top level hierarchy
 Info (12128): Elaborating entity "rc4" for hierarchy "rc4:inst" File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v Line: 20
-Warning (10036): Verilog HDL or VHDL warning at rc4.v(149): object "i_out" assigned a value but never read File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 149
-Warning (10036): Verilog HDL or VHDL warning at rc4.v(150): object "j_out" assigned a value but never read File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 150
-Warning (10036): Verilog HDL or VHDL warning at rc4.v(151): object "k_out" assigned a value but never read File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 151
-Warning (10230): Verilog HDL assignment warning at rc4.v(149): truncated value with size 8 to match size of target (1) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 149
-Warning (10230): Verilog HDL assignment warning at rc4.v(150): truncated value with size 8 to match size of target (1) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 150
-Warning (10230): Verilog HDL assignment warning at rc4.v(151): truncated value with size 8 to match size of target (1) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 151
-Info (10041): Inferred latch for "ckey[0]" at rc4.v(142) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-Info (10041): Inferred latch for "ckey[1]" at rc4.v(142) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-Info (10041): Inferred latch for "ckey[2]" at rc4.v(142) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-Info (10041): Inferred latch for "ckey[3]" at rc4.v(142) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-Info (10041): Inferred latch for "ckey[4]" at rc4.v(142) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-Info (10041): Inferred latch for "ckey[5]" at rc4.v(142) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-Info (10041): Inferred latch for "ckey[6]" at rc4.v(142) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-Info (10041): Inferred latch for "ckey[7]" at rc4.v(142) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-Info (12128): Elaborating entity "ram" for hierarchy "rc4:inst|ram:SBox" File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 165
-Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "rc4:inst|Mod0" File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 105
-Info (12130): Elaborated megafunction instantiation "rc4:inst|lpm_divide:Mod0" File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 105
-Info (12133): Instantiated megafunction "rc4:inst|lpm_divide:Mod0" with the following parameter: File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 105
-    Info (12134): Parameter "LPM_WIDTHN" = "8"
-    Info (12134): Parameter "LPM_WIDTHD" = "8"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_q9m.tdf
-    Info (12023): Found entity 1: lpm_divide_q9m File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/lpm_divide_q9m.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_fkh File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/sign_div_unsign_fkh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_i4f.tdf
-    Info (12023): Found entity 1: alt_u_div_i4f File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/alt_u_div_i4f.tdf Line: 26
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/add_sub_7pc.tdf Line: 22
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/db/add_sub_8pc.tdf Line: 22
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13012): Latch rc4:inst|ckey[0] has unsafe behavior File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rc4:inst|i[7] File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 32
-Warning (13012): Latch rc4:inst|ckey[1] has unsafe behavior File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rc4:inst|i[1] File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 32
-Warning (13012): Latch rc4:inst|ckey[2] has unsafe behavior File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rc4:inst|i[3] File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 32
-Warning (13012): Latch rc4:inst|ckey[3] has unsafe behavior File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rc4:inst|i[5] File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 32
-Warning (13012): Latch rc4:inst|ckey[4] has unsafe behavior File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rc4:inst|i[6] File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 32
-Warning (13012): Latch rc4:inst|ckey[5] has unsafe behavior File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rc4:inst|i[0] File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 32
-Warning (13012): Latch rc4:inst|ckey[6] has unsafe behavior File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rc4:inst|i[2] File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 32
-Warning (13012): Latch rc4:inst|ckey[7] has unsafe behavior File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 142
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rc4:inst|i[4] File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 32
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "done[1]" is stuck at GND File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v Line: 10
-    Warning (13410): Pin "done[2]" is stuck at GND File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v Line: 10
-    Warning (13410): Pin "done[3]" is stuck at GND File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v Line: 10
-    Warning (13410): Pin "done[4]" is stuck at GND File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v Line: 10
-    Warning (13410): Pin "done[5]" is stuck at GND File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v Line: 10
-    Warning (13410): Pin "done[6]" is stuck at GND File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v Line: 10
-    Warning (13410): Pin "done[7]" is stuck at GND File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_inst.v Line: 10
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 1 registers lost all their fanouts during netlist optimizations.
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 7179 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 43 input pins
-    Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 7120 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 35 warnings
-    Info: Peak virtual memory: 773 megabytes
-    Info: Processing ended: Tue Mar 20 09:57:30 2018
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:39
+Info (10041): Inferred latch for "ckey[0]" at rc4.v(143) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 143
+Info (10041): Inferred latch for "ckey[1]" at rc4.v(143) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 143
+Info (10041): Inferred latch for "ckey[2]" at rc4.v(143) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 143
+Info (10041): Inferred latch for "ckey[3]" at rc4.v(143) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 143
+Info (10041): Inferred latch for "ckey[4]" at rc4.v(143) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 143
+Info (10041): Inferred latch for "ckey[5]" at rc4.v(143) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 143
+Info (10041): Inferred latch for "ckey[6]" at rc4.v(143) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 143
+Info (10041): Inferred latch for "ckey[7]" at rc4.v(143) File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 143
+Info (12128): Elaborating entity "ram" for hierarchy "rc4:inst|ram:SBox" File: C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v Line: 164
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 648 megabytes
+    Info: Processing ended: Thu Mar 22 11:34:54 2018
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:23
 
 

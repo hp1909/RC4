@@ -1,13 +1,15 @@
 ///////////////////////////////////////////////
-// NAME; 3-ports RAM Block
-// Author: Hoang Phuc
-// Date: 
+// NAME; 3 ports RAM Block
+// Developed by; Honag Phuc
+// Date;
 // Description; This is RAM block has 3 ports;
 // Port 1: Read-only (rdadrr, rddata,..)
 // port 2: Write only
 // Port 3: Read-Write
 
-module ram(
+module ram_new_design
+#(parameter NUMS_OF_BYTES = 4)
+(
             input rst_n,
             input clk,
             // input wen_2,
@@ -21,9 +23,13 @@ module ram(
             input [7:0] wdata_2,
             input [7:0] wdata_3,
 
+            input [NUMS_OF_BYTES * 8 - 1:0] k_addr,
+            output reg [NUMS_OF_BYTES * 8 - 1:0] k_data,
+
             output [7:0] rdata_1,
             output [7:0] rdata_3
 );
+    integer i;
 
     reg [7:0] mem [255:0];
 
@@ -299,6 +305,15 @@ module ram(
         // begin
             mem[addr_3] <= wdata_3;
         end 
+    end
+
+    always@(*)
+    begin
+        if (rst_n) begin
+            for (i = 0; i < NUMS_OF_BYTES; i = i + 1) begin
+                k_data[i * 8 +: 8] = mem[k_addr[i * 8 +: 8]];
+            end
+        end
     end
 
 endmodule
