@@ -70,7 +70,7 @@ int main()
     fileOut << "Key value: " << endl;
     for (i = 1; i < keyLength + 1; i++) 
     {
-        j = j + sBox[i];
+        j = (j + sBox[i]) % 256;
         int temp = sBox[i];
         sBox[i] = sBox[j];
         sBox[j] = temp;

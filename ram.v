@@ -7,7 +7,9 @@
 // port 2: Write only
 // Port 3: Read-Write
 
-module ram(
+module ram
+#(parameter NUMS_OF_BYTES = 4)
+(
             input rst_n,
             input clk,
             // input wen_2,
