@@ -20,6 +20,7 @@ parameter NUMS_OF_BYTES = 4;
     wire [NUMS_OF_BYTES * 8 - 1:0] k_data;
     wire [7:0] ckey;
     wire done;
+    integer i;
 
     rc4_new_design #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) rc4_test(
                     //input
@@ -44,10 +45,14 @@ parameter NUMS_OF_BYTES = 4;
                     // .wdata_2    (wdata_2),
                     // .wdata_3    (wdata_3),
                     .k_addr     (k_addr),
-                    .k_data     (k_data),
+                    //.k_data     (k_data),
                     .ckey       (ckey),
                     .done       (done)
     );
+
+    initial begin
+        out = $fopen("output.txt", "w");
+    end
 
     initial begin
         clk = 1'b0;
@@ -71,6 +76,8 @@ parameter NUMS_OF_BYTES = 4;
 
     // Notify when done
     always@(posedge done) begin
-            $display("done");
+            for (i = 0; i < NUMS_OF_BYTES; i = i + 1) begin
+                $fwrite(out, "%d\n", )
+            end
     end
 endmodule 
