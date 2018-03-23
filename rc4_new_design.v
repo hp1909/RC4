@@ -29,10 +29,9 @@ module rc4_new_design
     input [31:0] key,
     input [7:0] key_length,
 
-    output [NUMS_OF_BYTES * 8 - 1:0]  k_data,
+    output [NUMS_OF_BYTES * 8 - 1:0]  ckey,
     output reg [NUMS_OF_BYTES * 8 - 1:0] k_addr,  
 
-    output [7:0] ckey,
     output reg done
 );
 	
@@ -152,7 +151,6 @@ module rc4_new_design
     assign addr_3 = j;
 
     // output of cipher key 
-    assign ckey = PRGA ? ((~wen && state == STEP_1 && i > 1 && i < 255) ? rdata_1 : ckey) : 8'd0;
 	 
 	 // value of cipher key
     assign key_reg[0] = key[7:0];
@@ -168,7 +166,7 @@ module rc4_new_design
         .waddr_2    (waddr_2),
         .addr_3     (addr_3),
         .k_addr     (k_addr),
-        .k_data     (k_data),
+        .k_data     (ckey),
         .wdata_2    (wdata_2),
         .wdata_3    (wdata_3),
         .rdata_1    (rdata_1),

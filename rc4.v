@@ -8,6 +8,7 @@
 *               
 ** ************************************************************************************/
 module rc4
+#(parameter NUMS_OF_BYTES = 4)
 (
     input           clk,
     input           rst_n,
@@ -15,6 +16,7 @@ module rc4
     input [31:0]    key,
     input [7:0]     key_length,
 
+    output reg [NUMS_OF_BYTES * 8 - 1:0] k_data,
     output [7:0]    ckey,
     output reg      done
 );

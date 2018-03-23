@@ -17,8 +17,8 @@ parameter NUMS_OF_BYTES = 4;
     // wire wen;
     // wire [2:0] state;
     wire [NUMS_OF_BYTES * 8 - 1:0] k_addr;
-    wire [NUMS_OF_BYTES * 8 - 1:0] k_data;
-    wire [7:0] ckey;
+    wire [NUMS_OF_BYTES * 8 - 1:0] ckey;
+    //wire [7:0] ckey;
     wire done;
     integer i;
 
@@ -77,7 +77,7 @@ parameter NUMS_OF_BYTES = 4;
     // Notify when done
     always@(posedge done) begin
             for (i = 0; i < NUMS_OF_BYTES; i = i + 1) begin
-                $fwrite(out, "%d\n", )
+                $fwrite(out, "%d\n", ckey[i * 8 +: 8]);
             end
     end
 endmodule 
