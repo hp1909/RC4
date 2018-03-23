@@ -51,7 +51,7 @@ parameter NUMS_OF_BYTES = 4;
     );
 
     initial begin
-        out = $fopen("output.txt", "w");
+        out = $fopen("../test_data/output.txt", "w");
     end
 
     initial begin
