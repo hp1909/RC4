@@ -6,6 +6,9 @@ parameter NUMS_OF_BYTES = 4;
     reg clk, rst_n, start;
     reg [31:0] key;
     reg [7:0] key_length;
+    reg [7:0] input_key [NUMS_OF_BYTES: 0];
+    reg [7:0] output_cipher [NUMS_OF_BYTES - 1:0];
+     
 
     // wire [7:0] i_out;
     // wire [7:0] j_out;
@@ -52,6 +55,8 @@ parameter NUMS_OF_BYTES = 4;
 
     initial begin
         out = $fopen("output.txt", "w");
+
+        $readmemh("")
     end
 
     initial begin
