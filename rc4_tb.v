@@ -56,7 +56,8 @@ parameter NUMS_OF_BYTES = 4;
     initial begin
         out = $fopen("output.txt", "w");
 
-        $readmemh("")
+        $readmemh("../test_data/input.txt", input_key);
+        $readmemh("/tes")
     end
 
     initial begin
