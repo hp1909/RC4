@@ -68,4 +68,10 @@ parameter NUMS_OF_BYTES = 4;
         #10
             start = 1'b1;
     end
+
+    always@(posedge clk) begin
+        if (done) begin
+            $display("done");
+        end
+    end
 endmodule 
