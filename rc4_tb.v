@@ -4,7 +4,7 @@
 module rc4_tb();
 parameter NUMS_OF_BYTES = 4;
     reg clk, rst_n, start;
-    reg [31:0] key;
+    reg [NUMS_OF_BYTES * 8 - 1:0] key;
     reg [7:0] key_length;
     reg [7:0] input_key [NUMS_OF_BYTES: 0];
     reg [7:0] output_cipher [NUMS_OF_BYTES - 1:0];
@@ -56,13 +56,19 @@ parameter NUMS_OF_BYTES = 4;
     initial begin
         out = $fopen("output.txt", "w");
 
-        $readmemh("../test_data/input.txt", input_key);
-        $readmemh("/tes")
+        $readmemh("./test_data/input.txt", input_key);
+        $readmemh("./test_data/output.txt", output_cipher);
     end
 
     initial begin
         clk = 1'b0;
         rst_n = 1'b0;
+
+        key_length = input_key[7:0];
+
+        for (i = 1; i < NUMS_OF_BYTES; i = i + 1) begin
+            key[i * 8 +: 8] = input_key[(i + 1) * 8 +: 8];
+        end
     end
 
     always
