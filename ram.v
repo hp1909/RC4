@@ -26,6 +26,7 @@ module ram
             output [7:0] rdata_1,
             output [7:0] rdata_3
 );
+    integer i;
 
     reg [7:0] mem [255:0];
 
