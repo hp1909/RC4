@@ -20,7 +20,7 @@ parameter NUMS_OF_BYTES = 4;
     wire [NUMS_OF_BYTES * 8 - 1:0] ckey;
     //wire [7:0] ckey;
     wire done;
-    integer i;
+    integer i, out;
 
     rc4_new_design #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) rc4_test(
                     //input
