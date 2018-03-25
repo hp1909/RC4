@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4
 vram
-Z1 !s110 1521966553
+Z1 !s110 1521967017
 !i10b 1
 !s100 J1089jQU;ec=K_=G[>Hd62
 I[54mo_]7g?nMB`cJZ69hP3
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1521966553.000000
+Z5 !s108 1521967017.000000
 Z6 !s107 ram_tb.v|ram_new_design.v|rc4.v|ram.v|rc4_new_design.v|rc4_tb.v|
 Z7 !s90 rc4_tb.v|rc4_new_design.v|ram.v|rc4.v|ram_new_design.v|ram_tb.v|
 !i113 1
@@ -111,11 +111,11 @@ R8
 vrc4_tb
 R1
 !i10b 1
-!s100 R5G5NiiOZ=kRUVbl3mh6m3
-Ib<?][2hUAV6zAeNQ^0OPO2
+!s100 EHRD6m];b<>VFnak?X6i<0
+I`X^PlHz=5O1LM4U[QgoX32
 R2
 R0
-w1521966511
+w1521966756
 8rc4_tb.v
 Frc4_tb.v
 L0 4
