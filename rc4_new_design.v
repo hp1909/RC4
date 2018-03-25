@@ -26,7 +26,7 @@ module rc4_new_design
     input clk,
     input rst_n,
     input start,
-    input [31:0] key,
+    input [NUMS_OF_BYTES * 8 - 1:0] key,
     input [7:0] key_length,
 
     output [NUMS_OF_BYTES * 8 - 1:0]  ckey,
@@ -35,7 +35,7 @@ module rc4_new_design
     output reg done
 );
 	
-	wire [7:0] key_reg [3:0];
+	reg [7:0] key_reg [NUMS_OF_BYTES - 1:0];
     wire [7:0]  raddr_1, waddr_2, addr_3;
     wire [7:0]  rdata_1, rdata_3;  
     reg	 [7:0]  wdata_2, wdata_3;
@@ -48,6 +48,9 @@ module rc4_new_design
     reg     [7:0]   temp_addr;
     reg             first_iter;
     reg	    [7:0]	Si;
+
+    // variable for loop
+    integer iter;
 
     // state
     parameter STEP_1 = 1;
@@ -151,12 +154,13 @@ module rc4_new_design
     assign addr_3 = j;
 
     // output of cipher key 
-	 
+	
 	 // value of cipher key
-    assign key_reg[0] = key[7:0];
-    assign key_reg[1] = key[15:8];
-    assign key_reg[2] = key[23:16];
-    assign key_reg[3] = key[31:24];
+     always@(*) begin
+        for (iter = 0; iter < NUMS_OF_BYTES; iter = iter + 1) begin
+            key_reg[iter] <= key[iter * 8 +: 8]; 
+        end
+     end
 
     ram_new_design #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) SBox (
         .rst_n      (rst_n),

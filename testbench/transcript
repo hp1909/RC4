@@ -1,1 +1,577 @@
 # Loading project test_rc4
+# Compile of rc4_tb.v was successful.
+# Compile of rc4.v was successful.
+# Compile of ram.v was successful.
+# Compile of ram_tb.v was successful.
+# Compile of rc4_new_design.v was successful.
+# Compile of ram_new_design.v was successful.
+# 6 compiles, 0 failed with no errors.
+compile all
+# wrong # args: should be "compile w cmd ..."
+compile
+# wrong # args: should be "compile w cmd ..."
+compile /
+# wrong # args: should be "compile w cmd ..."
+vlog -help
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Usage: vlog [options] files
+# Options:
+#   -help              Print this message
+#   -version           Print the version of the compiler
+#   -work <path>       Specify library WORK
+#   -fatal <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as fatal
+#   -error <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as errors
+#   -warning <msgNumber>[,<msgNumber>...]
+#                      Report the listed messages as warnings
+#   -warning error     Report all warnings as errors
+#   -note <msgNumber>[,<msgNumber>...]
+#                      Report the listed message as notes
+#   -suppress <msgNumber>[,<msgNumber>...]
+#                      Suppress the listed messages
+#   -msglimit [all,|none,][-|+]<msgNumber>[,[-|+]<msgNumber>...]
+#                      Limit the reporting of listed messages to default count
+#   -msglimitcount <limit_value> -msglimit [all,|none,][-|+]<msgNumber>[,[-|+]<msgNumber>...]
+#                      Limit the reporting of listed messages to user defined count
+#   -msgsingleline     Display the messages in a single line.
+#   -svfilesuffix=<extension>[,<extension>...]
+#                      filename extensions for SystemVerilog code
+#   -93                Preserve the case of Verilog module (and parameter
+#                      and port) names in the equivalent VHDL entity by using
+#                      VHDL-1993 extended identifiers; this may be useful
+#                      in mixed-language designs
+#   -afs_check         Dump XML information from compilation unit scope
+#   -ams               Enable AMS wreal extensions
+#   -wireasinterconnect               Convert qualifying nets from wire to interconnect.
+#   -wireasinterconnectverbose       Identify which nets have been converted from wire to interconnect.
+#   -addpragmaprefix <prefix>
+#                      Enable recognition of synthesis and coverage pragmas with
+#                      a user specified prefix.
+#   -compat            Disable optimizations that result in different event ordering
+#                      than Verilog-XL (at expense of performance).
+#   -ccflags "opts"
+#                      Specify in quotes all the C/C++ compiler options for vlog/qverilog
+#   -ccwarn [on|off|verbose|strict]
+#                      Enable additional error/warning gcc flags with C/C++ files compilation
+#                      Options are:
+#                         on (default): compiles with -Wreturn-type, -Wimplicit, 
+#                             -Wuninitialized,  -Wmissing-declarations gcc options
+#                         off: compiles without any warning options
+#                         verbose: compiles with the -Wall gcc option
+#                         strict: compiles with the -Werror gcc option
+#   -compile_uselibs[=<directory_name>]
+#                      Use the `uselib directive to find verilog source files
+#                      and compile them into automatically created libraries
+#   -cuname <compilation_unit_name>
+#                      Explicitly name the compilation unit package. The option
+#                      can only be used with -mfcu. The <compilation_unit_name>
+#                      can be top design unit name at vsim and vopt commandline
+#   -cuautoname=[file|du]
+#                      Select method for naming $unit library entries.
+#                      file - base the name of the first file on the command line (default)
+#                      du   - base the name on the first design unit following items
+#                             found in the $unit scope
+#   -createlib[=compress]
+#                      Create libraries that do not exist.
+#                      The =compress modifier creates compressed libraries.
+#   -nocreatelib       Do not create libraries that do not exist.
+#   +cover[=<spec>]
+#                      <spec> is used to enable code coverage metrics for certain
+#                      kinds of constructs.
+#                      <spec> consists of one or more of the following letter codes:
+#                         s (statement)
+#                         b (branch)
+#                         c (condition)
+#                         e (expression)
+#                         f (finite state machine)
+#                         t (toggle)
+#                         x (extended toggle)
+#                      If no <spec> characters are given, sbceft is the default.
+#   -coverenhanced     Enables functionality which may change the appearance or content of coverage
+#                      metrics. A detailed list of these changes can be found by searching in the
+#                      release notes for 'coverenhanced'. This option only takes meaningful effect in
+#                      letter releases (e.g. 10.2b). It has no effect in initial major releases (e.g. 10.2).
+#   -coveropt <i>      Specify a digit for code coverage optimization level: 1 through 4.
+#   -coverexcludedefault Automatically exclude case default clauses.
+#   -coverfec          Enable Focused Expression Coverage analysis for conditions and expressions.
+#   -nocoverfec        Disable Focused Expression Coverage analysis for conditions and expressions.
+#   -coverrec          Enable Rapid Expression Coverage mode of FEC for conditions and expressions.
+#   -nocoverrec        Disable Rapid Expression Coverage mode of FEC for conditions and expressions.
+#   -coverudp          Enable UDP Coverage analysis for conditions and expressions.
+#   -nocoverudp        Disable UDP Coverage analysis for conditions and expressions.
+#   -nocovershort      Disable short circuiting of expressions/condition when coverage is enabled.
+#   -coverexpandrdpfx  Bit-blast multi-bit operands of reduction prefix expressions for expression/condition coverage.
+#   -nocoverexpandrdpfx Don't bit-blast multi-bit operands of reduction prefix expressions for expression/condition coverage.
+#   -nocoverexcludedefault Don't automatically exclude case default clauses.
+#   -covercells        Enable code coverage options in cells.
+#   -nocovercells      Disable code coverage options in cells.
+#   -covercebi         Enable collapse of else-begin-if to an 'elsif' equivalent for coverage.
+#   -nocovercebi       Disable collapse of else-begin-if to an 'elsif' equivalent for coverage.
+#   -constimmedassert  Show constant immediate assertions in GUI/UCDB/reports etc.
+#   -togglecountlimit n Quit collecting toggle info after count n is reached.
+#   -togglewidthlimit n Don't collect toggle data on reg's or arrays wider than n.
+#   -extendedtogglemode [1|2|3]
+#                      Change the level of support for extended toggles.
+#                      The levels of support are:
+#                      1 - 0L->1H & 1H->0L & any one 'Z' transition (to/from 'Z')
+#                      2 - 0L->1H & 1H->0L & one transition to 'Z' & one transition from 'Z'
+#                      3 - 0L->1H & 1H->0L & all 'Z' transitions
+#   -toggleportsonly   Enable toggle statistics collection only for ports.
+#   -maxudprows n      Max number of rows allowed in UDP tables for code coverage.
+#   -maxfecrows n      Max number of input patterns allowed in FEC table for code coverage.
+#   -fecudpeffort n    Limit the size of expressions and conditions considered for expr/cond coverage.
+#                      Levels supported are:
+#                      1 - (low) Only small expressions and conditions considered for coverage.
+#                      2 - (medium) Bigger expressions and conditions considered for coverage.
+#                      3 - (high) Very large expressions and conditions considered for coverage.
+#   -coverreportcancelled Report coverage items that have been optimized away.
+#   -coverdeglitch <period> Report only the last execution of non-clocked processes/continuous assignments
+#                      within time greater than <period>, where <period> is 0 or
+#                      a time string with units
+#   +define+<macro_name>[=<macro_text>]
+#                      Same as compiler directive: `define macro_name macro_text
+#   -deglitchalways    Make always blocks insensitive to variable
+#                      glitches, potentially breaking zero delay oscillations
+#                      among combinatorial always blocks. (default)
+#   -nodeglitchalways  Disable -deglitchalways behavior.
+#   +delay_mode_distributed
+#                      Use structural delays and ignore path delays
+#   +delay_mode_path   Set structural delays to zero and use path delays
+#   +delay_mode_unit   Set non-zero structural delays to one
+#   +delay_mode_zero   Set structural delays to zero
+#   -dpiforceheader    Force generation of dpi header file even when
+#                      empty of function prototypes
+#   -dpiheader <filename>
+#                      Save the generated declarations of SystemVerilog DPI
+#                      tasks and functions into <filename>
+#   -E <filename>      Write preprocessed Verilog and SystemVerilog into <filename>
+#   -Epretty <filename>
+#                      Write pretty preprocessed Verilog and SystemVerilog into <filename>
+#   -Edebug <filename>
+#                      Write debugable preprocessed Verilog and SystemVerilog into <filename>
+#   -enumfirstinit     Initialize an enum using its first elem.
+#   -f <path>          Specify a file containing more command line arguments
+#   -F <path>          Specify a file containing more command line arguments. Prefixes relative
+#                      file names within the arguments file with the absolute path of arguments file,
+#                      if lookup with relative path fails.
+#   -outf <filename>   Specify a file to save the final list of options after recursively expanding
+#                      all -f, -file and -F files.
+#   -force_refresh     Force a refresh of the library image from .dat file(s)
+#                      even if there are dependency errors
+#   -optionset <optionset_name>
+#                      Calls an option set in modelsim.ini.
+#   -nofsmresettrans   Disable recognition of implicit asynchronous reset transitions for FSMs
+#   -fsmresettrans     Enable recognition of implicit asynchronous reset transitions for FSMs
+#   -nofsmsingle       Disable recognition FSMs having single bit current state variable
+#   -fsmsingle         Enable recognition FSMs having single bit current state variable
+#   -fsmimplicittrans  Enable recognition of implicit transitions in FSMs
+#   -nofsmimplicittrans Disable recognition of implicit transitions in FSMs
+#   -fsmmultitrans     Enable recognition of Multi-state transitions in FSMs
+#   -fsmverbose [b|t|w]
+#                      Provides information about FSMs recognized, including state reachability analysis.
+#                      There are three detail levels that can be set with this option.
+#                         b (displays only basic information)
+#                         t (displays a transition table in addition to the basic information)
+#                         w (displays any warning messages in addition to the basic information)
+#                      If no character is specified, btw is the default.
+#   -nofsmxassign      Disable recognition of FSMs containing x assignment
+#   -fsmxassign        Enable recognition of FSMs containing x assignment
+#   -gen_xml <entity> <output>
+#                      Output (into a file) the interface definition of the
+#                      specified design unit in XML format
+#   -gen_xmlstruct <entity> <output>
+#                      Similar to -gen_xml, but also output the structural definition
+#                      of the specified design unit in XML format
+#   -ignorepragmaprefix <prefix>
+#                      Ignore synthesis and coverage pragmas with specified prefix
+#   -hazards           Enable run-time hazard checking code
+#   +incdir+<dir>      Search directory for files included with
+#                      `include "filename"
+#   -incr              Enable incremental compilation
+#   +initmem[=<spec>][+0|1|X|Z]
+#                      Initialize fixed-size arrays of type indicated by <spec>.
+#   +initreg[=<spec>][+0|1|X|Z]
+#                      Initialize variables of type indicated by <spec>.
+#                      Valid values of <spec> are:
+#                         r (4-state integral types)
+#                         b (2-state integral types)
+#                         e (enum types)
+#                         u (udp types)
+#                      If no <spec> is given, all these types are enabled.
+#                      If 0|1|X|Z is specified, all the bits in the variable
+#                      are intialized to that value.  Otherwise, these variables
+#                      are prepared for randomization during vsim.
+#   +iterevaluation    Enable an iterative evaluation mechanism on optimized gate-level
+#                      cells with feedback loops.
+#   -L <libname>       Search library for design units needed when optimizing
+#   -Lf <libname>      Same as -L, but libraries are searched before `uselib
+#   -Ldir <dirname>    Specify the container folder for libraries passed with -L & -Lf options.
+#   -libverbose[=libmap]
+#                      Verbose messaging about library mappings, search and resolution.
+#                      The =libmap modifier prints library map pattern matching information.
+#   -l <filename>      Write compilation log to <filename>
+#   +libext+<suffix>   Specify suffix of files in library directory
+#   -libmap <path>     Specify Verilog 2001 library map file
+#   +librescan         Scan libraries in command line order for all
+#                      unresolved module references
+#   -line <lineNum>    Specify a starting line number
+#   -lint              Perform lint-style checks
+#   -lowercasepragma   Allow only lower case pragmas
+#   -lowercasepslpragma   Allow only lower case PSL pragmas
+#   -modelsimini <modelsim.ini>
+#                      Specify path to the modelsim.ini file.
+#   +maxdelays         Use maximum timing from min:typ:max expressions
+#   -mfcu[=macro]      Multi-file compilation unit, all files in command line make up a compilation unit.
+#                      The =macro modifier only enables the visibility of macro definitions across different files.
+#                      The default is to have each file be a separate compilation unit (-sfcu mode).
+#   +mindelays         Use minimum timing from min:typ:max expressions
+#   -mixedansiports    Enables mixing of ANSI-style and non-ANSI-style declarations
+#   -nodebug[=ports][=pli][=ports+pli]
+#                      Do not put symbolic debugging information into the library
+#   -nodbgsym
+#                      Do not generate symbols debugging database
+#   -smartdbgsym
+#                      Generate symbols debugging database for only some special cases
+#   -noexcludeternary <design_unit>
+#                      Disables exclusion of ternary expressions in UCDB.
+#   -noForceUnsignedToVhdlInteger
+#                      Prevents conversion of untyped parameters to integer.
+#   -noincr            Forces complete analysis and code generation, effectively turning
+#                      off incremental compilation
+#   +nolibcell         Do not automatically define library modules as cells(default)
+#   +libcell           Define library modules (found with -v|-y search) as cells
+#   -nologo            Disable startup banner
+#   -[w]prof=<filename> Enables CPU (-prof) or WALL (-wprof) time based profiling
+#                       and saves the profile data to the given filename.
+#   -proftick=<integer> Set the time interval between the profile data collection.
+#                       Default value is 10.
+#   -nooverrideundef <macro_name>
+#                      Do not ignore `undef if the macro is defined using +define option
+#   -nopsl             Disable embedded PSL language parsing
+#   -novopt            Do not run the "vopt" compiler before simulation
+#   +nospecify         Disable specify path delays and timing checks
+#   +notimingchecks    Disable timing checks
+#   -nowarn <number>   Disable specified category of warning messages; verror 1907 to see them
+#   +nowarn<CODE>      Disable specified warning message
+#   +num_opt_cell_conds+<value> 
+#                      Restricts gate-level optimization capacity for accepting cells with
+#                      I/O path and timing check conditions.
+#                      <value> integer between 32 and 1023, inclusive. where the default 
+#                      value is 1023.
+#   -noconstimmedassert  Do not show constant immediate assertions in GUI/UCDB/reports etc.
+#   -O0                Disable optimizations
+#   -O1                Enable some optimizations (default)
+#   -pedanticerrors    Enforce strict language checks
+#   -permissive        Relax some language error checks to warnings.
+#   -printinfilenames[=<filename>]
+#                      Print path names for all source files opened during compilation.
+#   +protect[=<file>]  Enable use of `protect...`endprotect compiler directives
+#   -pslext            Enable PSL LTL/Universal operators
+#   -pslfile <file>    Compile and bind PSL vunits specified by <file>
+#   -quiet             Disable 'Loading' messages
+#   -R [<simargs>]     Cause vsim to be invoked with <simargs> and top-level
+#                      modules; simargs consists of the rest of the arguments
+#                      or until a single-character dash is encountered
+#   -                  Indicate end of optional -R <simargs>
+#   -refresh           Refresh the library image from .dat file(s)
+#   -scdpiheader <filename>
+#                      Save the generated declarations of SystemVerilog SystemC DPI
+#                      tasks and functions into <filename>
+#   -sfcu              Single-file compilation unit (default),
+#                      each file in command line is a separate compilation unit
+#   -skipprotected     Ignore protected regions
+#   -skipprotectedmodule Ignore modules containing protected regions
+#   -skipsynthoffregion Ignore all constructs within synthesis_off or translate_off pragma regions.
+#   -source            Print the source line with error messages
+#   -stats[=[+-]<args>] Enables compiler statistics
+#                      <args> are all,none,time,cmd,msg,perf,verbose,list,kb
+#   -sv                Enable SystemVerilog features and keywords
+#   -sv_pragma         Compiles SystemVerilog code that follows sv_pragma keyword in a single line or multi-line comment.
+#   -sv05compat        Ensure compatibility with IEEE standard 1800-2005
+#   -sv09compat        Ensure compatibility with IEEE standard 1800-2009
+#   -sv12compat        Ensure compatibility with IEEE standard 1800-2012
+#   -svinputport=net|var|relaxed
+#                      Select the default kind for an input port that is
+#                      declared with a type, but without the var keyword.
+#                      Select 'net' for strict LRM compliance, where the
+#                      kind always defaults to wire. Select 'var' for
+#                      non-compliant behavior, where the kind always defaults
+#                      to var. The default is 'relaxed', where only a
+#                      type that is a 4-state scalar or 4-state single
+#                      dimension vector type defaults to wire.
+#   -svext[=[+|-]<extension>[,[+|-]<extension>]*]
+#                      Enable SystemVerilog language extensions.
+#                      Valid extensions are:
+#                      acum  - Assignment Compatible Untyped Mailbox.
+#                      ared  - Iterate over innermost array elements for array reduction methods.
+#                      arif  - Allow ref args in fork.
+#                      atpi  - Allow Types in Port Identifiers.
+#                      bstr  - Allow usage of string builtin method bittostr.
+#                      catx  - Concat extensions.
+#                      ctlc  - Cast time literal in constraint context to time datatype.
+#                      ddup  - Drive default unconnected port.
+#                      defervda - Defer variable declaration assignments until after top-blocking always are sensitized.
+#                      evdactor - Do early variable declaration assignments in constructors.
+#                      evis  - Expand Environment Variables within Include String literals.
+#                      feci  - Treat constant expressions in foreach loop variable indices as constant.
+#                      fin0  - $finish() system call works as $finish(0), prints no diagnostic information.
+#                      hiercross1 - Allow hierarchical cross feature.
+#                      hiercross2 - Allow an alternate hierarchical cross feature.
+#                      ias   - Iterate on always @* evaluations until inputs settle.
+#                      idcl  - Pass import DPI call location as implicit scope.
+#                      iddp  - Ignore DPI disable protocol check.
+#                      ifca  - Iterate on feedback continuous assignment until inputs settle.
+#                      islm  - Ignore String Literals within Macros.
+#                      mewq  - Allow macro expansion within quotes for string literals.
+#                      ncref - Ref formal in covergroup new is not treated as constant ref.
+#                      noexptc  - ignore DPI export SV type name overloading check
+#                      omaa  - Allow shuffle method on assoc array.
+#                      pae1  - Automatically export all symbols imported(referenced or not) in a package.
+#                      pae   - Automatically export all symbols imported and referenced in a package.
+#                      pctap - Promote Concat To Assignment Pattern using heuristics such as presence of unsized literals.
+#                      qcat  - Allow use of an assignment pattern for concatenating onto a queue.
+#                      realrand - Support randomize() with real variables and constraints (Default).
+#                      sccts - String concatenation convert to string.
+#                      sceq  - Allow string comparison with case equality operator.
+#                      spsl  - Search for packages in source libraries specified with -y and +libext.
+#                      stop0 - $stop() system call works as $stop(0), prints no diagnostic information.
+#                      substr1 - Allow one argument in substr() builtin method. Second argument will be end of string.
+#                      tzas  - Run a top-blocking always @* at time zero, same as is done for an always_comb.
+#                      udm0  - UnDefined Macro is assume to be defined as the value 1'b0.
+#                      uslt  - Promote unused design units to top-level design units.
+#                      vmctor- Honor virtual method calls in class constructor.
+#   -tbxhvllint[=<fileName>][+ignorepkgs[=[[<lib1>.]<pkg1>]...[,[<libN>.]<pkgN>]]]
+#                      The -tbxhvllint switch causes the compiler to warn about delays found in the source
+#                      code that may cause synchronization issues in Veloce TBX.
+#                      NOTE: If you plan to use vsim's -tbxhvllint switch to extract run time delay
+#                      ----- information then you must use this switch with the compiler.
+#                      - The #delay warnings may be captured in the optional file <fileName>.
+#                      - Additionally, the switch '+ignorepkgs' allows you to suppress #delay warnings from
+#                        imported packages. The '+ignorepkgs' without any arguments will suppress warnings
+#                        related to all #delays found in all the imported packages. You may fine tune the
+#                        message suppression by specifying package names (with optional library names). For
+#                        example '-tbxhvllint+ignorepkgs=uvm_pkg' will cause messages related to #delays
+#                        found in any package named 'uvm_pkg' (regardless of the library). Specifying
+#                        '-tbxhvllint+ignorepkgs=mylib.mypkg' will suppress #delay messages related to
+#                        imported package 'mypkg' from library 'mylib'.
+#                      - Multiple '-tbxhvllint' switches are allowed.
+#   -timescale[=]<timescale>
+#                      Specify the default timescale for modules not having an
+#                      explicit timescale. The format of <timescale> is the same
+#                      as that of the `timescale directive.
+#                      For example, -timescale "1 ns / 1 ps".
+#   -override_timescale[=]<timescale>
+#                      Override the timescale specified in the source code.
+#   -override_precision
+#                      Override the precision of timescale specified in the source code.
+#   +typdelays         Use typical timing from min:typ:max expressions
+#   -s                 Do not load the std package.
+#   -u                 Convert regular Verilog identifiers to uppercase
+#   -v <path>          Specify Verilog source library file
+#   -vv                Print auto C/C++ compile/link subprocess command line information
+#   -vlog95compat      Ensure compatibility with Std 1364-1995
+#   -vlog01compat      Ensure compatibility with Std 1364-2001
+#   -convertallparams  Enables converting parameters not defined in ANSI style
+#                      to VHDL generics of type std_logic_vector, bit_vector,
+#                      std_logic and bit.
+#   -mixedsvvh [b | s | v] [packedstruct]
+#                      Facilitates using SV packages at the SV-VHDL mixed-language boundary.
+#                         b - treat scalars/vectors in package as bit/bit_vector
+#                         s - treat scalars/vectors in package as std_logic/std_logic_vector
+#                         v - treat scalars/vectors in package as vl_logic/vl_logic_vector
+#                         packedstruct - treat packed structures as VHDL arrays of equivalent size
+#   -y <path>          Specify Verilog source library directory
+#   -vmake             Collects complete list of command line args and files processed for use by vmake.
+#   -writetoplevels <fileName>
+#                      Writes complete list of toplevels into <fileName> (also includes the name specified
+#                      with -cuname). The file <fileName> can be used with vopt command's -f switch.
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:36:42 on Mar 24,2018
+# vlog -reportprogress 300 *.v 
+# ** Error: (vlog-7) Failed to open design unit file "*.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 16:36:42 on Mar 24,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/vlog failed.
+vlog *
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:36:53 on Mar 24,2018
+# vlog -reportprogress 300 output.txt test_rc4.cr.mti test_rc4.mpf transcript vsim.wlf wlft0c8jqt wlft0jcjtc wlft0v79sj wlft0zf6n5 wlft10wtxr wlft2ys8jy wlft3fwf1f wlft4f1xhe wlft4j1ji9 wlft5ai4m8 wlft5wt525 wlft5zdwxv wlft63atqn wlft655bd0 wlft6fa7aq wlft74c49t wlft7i4n4g wlft7mbc7w wlft7r0c3t wlft7xhk91 wlft7yfcni wlft86v9b4 wlft8cevgs wlft8fd7b8 wlft8r0egc wlft9h121r wlft9hje0e wlftac7dx8 wlftadbw4r wlftaq9jia wlftax20xe wlftazvrf0 wlftb72k3e wlftbf1872 wlftbw4w69 wlftbwdcv5 wlftc8zf01 wlftcm7tnd wlftds8mak wlftei55ki wlfteqyxzv wlftf7cm89 wlftf9j7gv wlftfai5gh wlftfwbcr1 wlftgkcc05 wlftgswgsr wlftgvbweh wlfth1v7ex wlfth627ih wlfthtw9fc wlfthx333f wlfthzhgae wlfti8jdrv wlfti9efr1 wlftid1z6r wlftii97j8 wlftiixfcb wlftj9qqzn wlftjksjic wlftk2emw5 wlftk3z17x wlftk75stq wlftknwc8k wlftkwkb0n wlftmawcyh wlftmc3v4v wlftn169a6 wlftndmax2 wlftnyrzf8 wlftq54x33 wlftq7gh90 wlftqb7cy4 wlftqn35ng wlftqrbfrn wlftr3z481 wlftrdnbnd wlftrn2ysr wlftrtm02m wlfts0wj80 wlfts2h8s3 wlfts9csa4 wlftsgdqke wlftsnsn1g wlftss57i5 wlftszvh8h wlfttjgj70 wlfttm60ta wlfttq44ab wlfttxmk1t wlfttyyeb6 wlftv1rr9e wlftv9d56f wlftvmr0q6 wlftvsgcba wlftw16b0k wlftwcskz3 wlftx6vw67 wlftxrc5s2 wlftxtvzax wlfty1ibsj wlfty9wjdi wlftz0f2ze wlftzhfbds wlftzrs8ys wlftzv3ffw work 
+# ** Error: (vlog-13069) test_rc4.cr.mti(1): near "{": syntax error, unexpected '{', expecting class.
+# ** Error: (vlog-13069) test_rc4.mpf(1): near "1991": syntax error, unexpected INTEGER NUMBER.
+# ** Error: test_rc4.mpf(1): (vlog-13205) Syntax error found in the scope following 'Copyright'. Is there a missing '::'?
+# ** Error: (vlog-13069) transcript(1): near "#": syntax error, unexpected '#', expecting class.
+# ** Error: (vlog-13069) vsim.wlf(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft0c8jqt(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft0jcjtc(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft0v79sj(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft0zf6n5(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft10wtxr(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft2ys8jy(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft3fwf1f(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft4f1xhe(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft4j1ji9(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft5ai4m8(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft5wt525(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft5zdwxv(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft63atqn(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft655bd0(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft6fa7aq(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft74c49t(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft7i4n4g(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft7mbc7w(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft7r0c3t(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft7xhk91(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft7yfcni(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft86v9b4(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft8cevgs(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft8fd7b8(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft8r0egc(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft9h121r(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlft9hje0e(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftac7dx8(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftadbw4r(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftaq9jia(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftax20xe(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftazvrf0(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftb72k3e(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftbf1872(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftbw4w69(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftbwdcv5(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftc8zf01(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftcm7tnd(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftds8mak(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftei55ki(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfteqyxzv(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftf7cm89(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftf9j7gv(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftfai5gh(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftfwbcr1(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftgkcc05(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftgswgsr(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftgvbweh(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfth1v7ex(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfth627ih(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfthtw9fc(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfthx333f(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfthzhgae(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfti8jdrv(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfti9efr1(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftid1z6r(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftii97j8(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftiixfcb(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftj9qqzn(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftjksjic(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftk2emw5(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftk3z17x(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftk75stq(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftknwc8k(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftkwkb0n(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftmawcyh(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftmc3v4v(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftn169a6(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftndmax2(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftnyrzf8(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftq54x33(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftq7gh90(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftqb7cy4(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftqn35ng(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftqrbfrn(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftr3z481(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftrdnbnd(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftrn2ysr(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftrtm02m(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfts0wj80(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfts2h8s3(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfts9csa4(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftsgdqke(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftsnsn1g(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftss57i5(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftszvh8h(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfttjgj70(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfttm60ta(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfttq44ab(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfttxmk1t(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfttyyeb6(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftv1rr9e(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftv9d56f(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftvmr0q6(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftvsgcba(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftw16b0k(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftwcskz3(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftx6vw67(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftxrc5s2(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftxtvzax(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfty1ibsj(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlfty9wjdi(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftz0f2ze(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftzhfbds(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftzrs8ys(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-13069) wlftzv3ffw(1): syntax error, unexpected $undefined, expecting class.
+# ** Error: (vlog-2054) File "work" is a directory.
+# End time: 16:36:54 on Mar 24,2018, Elapsed time: 0:00:01
+# Errors: 112, Warnings: 0
+# C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/vlog failed.
+vlog rc4_tb.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:37:12 on Mar 24,2018
+# vlog -reportprogress 300 rc4_tb.v 
+# ** Error: (vlog-7) Failed to open design unit file "rc4_tb.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 16:37:12 on Mar 24,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/vlog failed.
+vcom /
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:38:13 on Mar 24,2018
+# vcom -reportprogress 300 C:/ 
+# ** Error: (vcom-2054) File "C:/" is a directory.
+# End time: 16:38:13 on Mar 24,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/vcom failed.
+vcom ./
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:38:23 on Mar 24,2018
+# vcom -reportprogress 300 ./ 
+# ** Warning: (vcom-20) Cannot access for reading (Permission denied) file "./".
+# ** Error: (vcom-7) Failed to open design unit file "./" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 16:38:23 on Mar 24,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+# C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/vcom failed.
+pwd
+# C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/testbench
+vsim ./work/.lock
+# vsim ./work/.lock 
+# Start time: 16:39:50 on Mar 24,2018
+# ** Error: (vsim-3170) Could not find 'lock'.
+#         Searched libraries:
+#             C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/testbench/work
+# Error loading design
+# End time: 16:39:50 on Mar 24,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom ../rc4.v ../
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:17:52 on Mar 24,2018
+# vcom -reportprogress 300 ../rc4.v ../ 
+# -- Loading package STANDARD
+# ** Error: ../rc4.v(1): near "/": syntax error
+# ** Warning: (vcom-20) Cannot access for reading (Permission denied) file "../".
+# ** Error: (vcom-7) Failed to open design unit file "../" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 22:17:52 on Mar 24,2018, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 1
+# C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/vcom failed.
+vcom ../rc4.v
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:17:55 on Mar 24,2018
+# vcom -reportprogress 300 ../rc4.v 
+# -- Loading package STANDARD
+# ** Error: ../rc4.v(1): near "/": syntax error
+# End time: 22:17:55 on Mar 24,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/vcom failed.
+pwd
+# C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/testbench

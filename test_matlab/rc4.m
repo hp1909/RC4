@@ -7,10 +7,14 @@
 
 clear all
 clc
-fileOut  = fopen('../output.txt', 'w');
+a = '../test_data/output.txt';
+fileOut  = fopen(a, 'w');
+fileIn   = fopen('../test_data/input.txt');
 
-keyLength = 4;
-key = [97 98 99 100];
+A = fscanf(fileIn, '%x')'
+
+keyLength = A(1)
+key = A(2:A(1) + 1)
 
 for i = 0:255
    sBox(i + 1) = i;
@@ -37,6 +41,6 @@ for i = 1: keyLength
     sBox(j + 1) = temp;
     k = mod(sBox(i + 1) + sBox(j + 1), 256);
     Ckey(n + 1) = sBox(k + 1);
-    fprintf(fileOut, "%d\n", Ckey(n + 1));
+    fprintf(fileOut, "%x\n", Ckey(n + 1));
     n = n + 1;
 end
