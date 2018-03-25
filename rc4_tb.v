@@ -2,8 +2,8 @@
 `define DELAY 10
 
 module rc4_tb();
-    parameter NUMS_OF_BYTES = 9;
-    
+    parameter NUMS_OF_BYTES = 5;
+
     reg clk, rst_n, start;
     reg [NUMS_OF_BYTES * 8 - 1:0] key;
     reg [7:0] key_length;
@@ -57,8 +57,8 @@ module rc4_tb();
 
     initial begin
 
-        $readmemh("../test_data/input.txt", input_key);
-        $readmemh("../test_data/output.txt", output_cipher);
+        $readmemh("test_data/input.txt", input_key);
+        $readmemh("test_data/output.txt", output_cipher);
     end
 
     initial begin

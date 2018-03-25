@@ -5,6 +5,7 @@
 
 matlab -r "try, run ('.\\test_matlab\\rc4.m'); end; quit"
 
+sleep 5
 #Run modelsim
 
 vsim -c -do run_sim.tcl
