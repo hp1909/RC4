@@ -30,29 +30,29 @@ module rc4_tb();
     integer i, out;
     reg valid;
 
-    rc4 #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) rc4_test(
+    rc4_new_design #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) rc4_test(
                     //input
                     .clk        (clk),
                     .rst_n      (rst_n),
                     .start      (start),
                     .key        (key),
                     .key_length (key_length),
-                    .state      (state),
-                    .PRGA       (PRGA),
-                    .KSA        (KSA),
-                    //output
-                    .wen        (wen),
-                    .j          (j_out),
-                    .k          (k_out),
-                    .i          (i_out),
-                    .raddr_1    (raddr_1),
-                    .waddr_2    (waddr_2),
-                    .addr_3     (addr_3),
-                    .rdata_1    (rdata_1),
-                    .rdata_3    (rdata_3),
-                    .wdata_2    (wdata_2),
-                    .wdata_3    (wdata_3),
-                    .temp_addr  (temp_addr),
+                    // .state      (state),
+                    // .PRGA       (PRGA),
+                    // .KSA        (KSA),
+                    // //output
+                    // .wen        (wen),
+                    // .j          (j_out),
+                    // .k          (k_out),
+                    // .i          (i_out),
+                    // .raddr_1    (raddr_1),
+                    // .waddr_2    (waddr_2),
+                    // .addr_3     (addr_3),
+                    // .rdata_1    (rdata_1),
+                    // .rdata_3    (rdata_3),
+                    // .wdata_2    (wdata_2),
+                    // .wdata_3    (wdata_3),
+                    // .temp_addr  (temp_addr),
                     //.temp_data  (temp_data),
                     //.k_addr     (k_addr),
                     //.data_out   (data_out),
@@ -91,20 +91,20 @@ module rc4_tb();
     end
 
     // Notify when done
-    // always@(posedge done) begin
-    //         for (i = 0; i < NUMS_OF_BYTES; i = i + 1) begin
-    //             if (ckey[i * 8 +: 8] != output_cipher[i]) begin
-    //                 $display("error at position %d\n", i);
-    //                 valid = 1'b0;
-    //             end
-    //         end
+    always@(posedge done) begin
+            for (i = 0; i < NUMS_OF_BYTES; i = i + 1) begin
+                if (ckey[i * 8 +: 8] != output_cipher[i]) begin
+                    $display("error at position %d\n", i);
+                    valid = 1'b0;
+                end
+            end
 
-    //         if (valid) begin
-    //             $display("data corect");
-    //         end
-    //         else begin
-    //             $display("data fail");
-    //         end
-    // end
+            if (valid) begin
+                $display("data corect");
+            end
+            else begin
+                $display("data fail");
+            end
+    end
 
 endmodule 
