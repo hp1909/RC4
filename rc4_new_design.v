@@ -26,16 +26,16 @@ module rc4_new_design
     input clk,
     input rst_n,
     input start,
-    input [31:0] key,
+    input [NUMS_OF_BYTES * 8 - 1:0] key,
     input [7:0] key_length,
 
     output [NUMS_OF_BYTES * 8 - 1:0]  ckey,
+    output reg [NUMS_OF_BYTES * 8 - 1:0]  data_out,
     output reg [NUMS_OF_BYTES * 8 - 1:0] k_addr,  
-
     output reg done
 );
 	
-	wire [7:0] key_reg [3:0];
+	reg [7:0] key_reg [NUMS_OF_BYTES - 1:0];
     wire [7:0]  raddr_1, waddr_2, addr_3;
     wire [7:0]  rdata_1, rdata_3;  
     reg	 [7:0]  wdata_2, wdata_3;
@@ -48,6 +48,10 @@ module rc4_new_design
     reg     [7:0]   temp_addr;
     reg             first_iter;
     reg	    [7:0]	Si;
+    // reg     [7:0]   temp_data;
+
+    // variable for loop
+    integer iter;
 
     // state
     parameter STEP_1 = 1;
@@ -104,6 +108,13 @@ module rc4_new_design
                     if (PRGA && i >= 1) begin
                         k <= Si + rdata_3; // calculate k by Si + Sj    // Cal k Block
                         k_addr[(i - 1) * 8 +: 8] <= Si + rdata_3;
+                        /*
+                        for (iter = 0; iter < NUMS_OF_BYTES; iter = iter + 1) begin
+                            k_addr[i * 8 +: 8] <= iter + 8'd3;
+                        end */
+                        if (i >= 2) begin
+                            data_out[(i - 2) * 8 +: 8] <= rdata_1;
+                        end
                     end
                     temp_addr <= i;
                     i <= i + 1'b1;      // increase i for next iteration
@@ -151,12 +162,13 @@ module rc4_new_design
     assign addr_3 = j;
 
     // output of cipher key 
-	 
+	
 	 // value of cipher key
-    assign key_reg[0] = key[7:0];
-    assign key_reg[1] = key[15:8];
-    assign key_reg[2] = key[23:16];
-    assign key_reg[3] = key[31:24];
+     always@(*) begin
+        for (iter = 0; iter < NUMS_OF_BYTES; iter = iter + 1) begin
+            key_reg[iter] <= key[iter * 8 +: 8]; 
+        end
+     end
 
     ram_new_design #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) SBox (
         .rst_n      (rst_n),

@@ -36,7 +36,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "done[0]",
+					"name" : "LEDG[0]",
 					"strict" : false
 				},
 				{
@@ -44,171 +44,27 @@
 					"strict" : false
 				},
 				{
-					"name" : "keyLength[7]",
+					"name" : "SW[0]",
 					"strict" : false
 				},
 				{
-					"name" : "keyLength[6]",
+					"name" : "SW[1]",
 					"strict" : false
 				},
 				{
-					"name" : "keyLength[5]",
+					"name" : "altera_reserved_tms",
 					"strict" : false
 				},
 				{
-					"name" : "keyLength[4]",
+					"name" : "altera_reserved_tck",
 					"strict" : false
 				},
 				{
-					"name" : "keyLength[3]",
+					"name" : "altera_reserved_tdi",
 					"strict" : false
 				},
 				{
-					"name" : "keyLength[2]",
-					"strict" : false
-				},
-				{
-					"name" : "keyLength[1]",
-					"strict" : false
-				},
-				{
-					"name" : "keyLength[0]",
-					"strict" : false
-				},
-				{
-					"name" : "rst_n",
-					"strict" : false
-				},
-				{
-					"name" : "start",
-					"strict" : false
-				},
-				{
-					"name" : "key[8]",
-					"strict" : false
-				},
-				{
-					"name" : "key[16]",
-					"strict" : false
-				},
-				{
-					"name" : "key[0]",
-					"strict" : false
-				},
-				{
-					"name" : "key[24]",
-					"strict" : false
-				},
-				{
-					"name" : "key[17]",
-					"strict" : false
-				},
-				{
-					"name" : "key[9]",
-					"strict" : false
-				},
-				{
-					"name" : "key[1]",
-					"strict" : false
-				},
-				{
-					"name" : "key[25]",
-					"strict" : false
-				},
-				{
-					"name" : "key[10]",
-					"strict" : false
-				},
-				{
-					"name" : "key[18]",
-					"strict" : false
-				},
-				{
-					"name" : "key[2]",
-					"strict" : false
-				},
-				{
-					"name" : "key[26]",
-					"strict" : false
-				},
-				{
-					"name" : "key[19]",
-					"strict" : false
-				},
-				{
-					"name" : "key[11]",
-					"strict" : false
-				},
-				{
-					"name" : "key[3]",
-					"strict" : false
-				},
-				{
-					"name" : "key[27]",
-					"strict" : false
-				},
-				{
-					"name" : "key[12]",
-					"strict" : false
-				},
-				{
-					"name" : "key[20]",
-					"strict" : false
-				},
-				{
-					"name" : "key[4]",
-					"strict" : false
-				},
-				{
-					"name" : "key[28]",
-					"strict" : false
-				},
-				{
-					"name" : "key[21]",
-					"strict" : false
-				},
-				{
-					"name" : "key[5]",
-					"strict" : false
-				},
-				{
-					"name" : "key[29]",
-					"strict" : false
-				},
-				{
-					"name" : "key[13]",
-					"strict" : false
-				},
-				{
-					"name" : "key[14]",
-					"strict" : false
-				},
-				{
-					"name" : "key[22]",
-					"strict" : false
-				},
-				{
-					"name" : "key[6]",
-					"strict" : false
-				},
-				{
-					"name" : "key[30]",
-					"strict" : false
-				},
-				{
-					"name" : "key[23]",
-					"strict" : false
-				},
-				{
-					"name" : "key[15]",
-					"strict" : false
-				},
-				{
-					"name" : "key[7]",
-					"strict" : false
-				},
-				{
-					"name" : "key[31]",
+					"name" : "altera_reserved_tdo",
 					"strict" : false
 				}
 			]

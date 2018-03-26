@@ -1,14 +1,14 @@
-Analysis & Elaboration Status : Successful - Thu Mar 22 11:34:54 2018
+Analysis & Synthesis Status : Successful - Sun Mar 25 23:04:14 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : RC4
 Top-level Entity Name : rc4_inst
 Family : Cyclone IV E
-Total logic elements : N/A until Partition Merge
-    Total combinational functions : N/A until Partition Merge
-    Dedicated logic registers : N/A until Partition Merge
-Total registers : N/A until Partition Merge
-Total pins : N/A until Partition Merge
-Total virtual pins : N/A until Partition Merge
-Total memory bits : N/A until Partition Merge
-Embedded Multiplier 9-bit elements : N/A until Partition Merge
-Total PLLs : N/A until Partition Merge
+Total logic elements : 8,410
+    Total combinational functions : 7,731
+    Dedicated logic registers : 3,215
+Total registers : 3215
+Total pins : 12
+Total virtual pins : 0
+Total memory bits : 425,984
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

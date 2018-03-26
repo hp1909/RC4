@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/intelFPGA_lite/17.1
 vram
-Z0 !s110 1521782589
+Z0 !s110 1522040328
 !i10b 1
 !s100 V=mbhM92oJKamlEBVG0JM3
 IbE2D1=nD63DMg6ACHhbdM0
@@ -23,14 +23,14 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1521782588.000000
+Z5 !s108 1522040328.000000
 !s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram.v|
 !i113 1
 Z6 o-work work
 Z7 tCvgOpt 0
 vram_new_design
-R0
+!s110 1522040329
 !i10b 1
 !s100 Iima4Fg6oP8U53H4B7I^_1
 IeBIiMU6Tk6IEAd^5]o:B30
@@ -44,7 +44,7 @@ R4
 r1
 !s85 0
 31
-Z8 !s108 1521782589.000000
+!s108 1522040329.000000
 !s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram_new_design.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram_new_design.v|
 !i113 1
@@ -65,20 +65,20 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 !s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/ram_tb.v|
 !i113 1
 R6
 R7
 vrc4
-Z9 !s110 1521782588
+R0
 !i10b 1
-!s100 d4L:b3_gZKaAIl79WmV3I1
-I[WUcRUKD51=HVS5<Ti2WN1
+!s100 Xj6R^`[z;GmTUfhlGl5o23
+IVPR?L10<YGl7_EL;BUaE<2
 R1
 R2
-w1521780911
+w1522040308
 8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v
 FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4.v
 R3
@@ -95,11 +95,11 @@ R7
 vrc4_new_design
 R0
 !i10b 1
-!s100 m?n[IUa`Kaha^UKOKCU;D3
-I<MJRhDFQD3KeWL`=KX]:M0
+!s100 3TXY=aBe2m;6c]Jo7kWFf0
+IS<6f6I4[Pg6gLJa@bmYVm2
 R1
 R2
-w1521780878
+w1522039226
 8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v
 FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v
 L0 23
@@ -107,20 +107,20 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 !s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_new_design.v|
 !i113 1
 R6
 R7
 vrc4_tb
-R9
+R0
 !i10b 1
-!s100 2T3OZcKO47W`[elEeY>090
-ILNAMId65CfN`EIC8aMi6A2
+!s100 HK7c>ZgVJk1R97KZzDOB>1
+IH5ji20Qe=MZiYUGAed_[43
 R1
 R2
-w1521782582
+w1522040324
 8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_tb.v
 FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/rc4_tb.v
 L0 4
