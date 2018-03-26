@@ -13,15 +13,28 @@ module rc4
     input           clk,
     input           rst_n,
     input           start,
-    input [31:0]    key,
+    input [NUMS_OF_BYTES * 8 - 1:0]    key,
     input [7:0]     key_length,
 
-    output reg [NUMS_OF_BYTES * 8 - 1:0] k_data,
     output [7:0]    ckey,
-    output reg      done
+    output reg      done,
+
+    output    [7:0]   raddr_1, waddr_2, addr_3,
+    output    [7:0]   rdata_1, rdata_3,
+    output reg	    [7:0]   wdata_2, wdata_3,
+
+    output reg             wen,
+    output reg 	[2:0]   state,
+    output reg             PRGA, KSA,
+
+    output reg     [7:0]   i, j, k,
+    output reg     [7:0]   temp_addr
+    // output reg             first_iter,
+    // output reg	    [7:0]	Si
 );
 	
-	wire    [7:0]   key_reg [3:0];
+	reg     [7:0]   key_reg [NUMS_OF_BYTES - 1:0];
+    /*
     wire    [7:0]   raddr_1, waddr_2, addr_3;
     wire    [7:0]   rdata_1, rdata_3;
     reg	    [7:0]   wdata_2, wdata_3;
@@ -32,8 +45,11 @@ module rc4
 
     reg     [7:0]   i, j, k;
     reg     [7:0]   temp_addr;
+    */
     reg             first_iter;
-    reg	    [7:0]	Sk;
+    reg	    [7:0]	Si;
+    
+    integer iter;
 
     // state
     parameter STEP_1 = 1;
@@ -46,7 +62,7 @@ module rc4
             i           <= 8'd0;
             j           <= 8'd0;
             k           <= 8'd0;
-            Sk          <= 8'd0;
+            Si          <= 8'd0;
             KSA         <= 1'b1;
             PRGA        <= 1'b0;
             temp_addr   <= 8'd0;
@@ -83,11 +99,16 @@ module rc4
                     wen <= 1'b1;
                     if (i != j) begin
                         wdata_2 <= rdata_3; // i <- S[j]
-                        wdata_3 <= rdata_1; // j <- S[i]
+                        if (PRGA) begin
+                            wdata_3 <= Si;
+                        end
+                        else begin
+                            wdata_3 <= rdata_1; // j <- S[i]
+                        end
                     end 
 
                     if (PRGA && i >= 1) begin
-                        k <= Sk + rdata_3; // calculate k by Si + Sj    // Cal k Block
+                        k <= Si + rdata_3; // calculate k by Si + Sj    // Cal k Block
                     end
                     temp_addr <= i;
                     i <= i + 1'b1;      // increase i for next iteration
@@ -107,7 +128,7 @@ module rc4
                         j <= 8'd0 + rdata_1;                            // Cal J Block                            
                     else
                         j <= j + rdata_1;                               // Cal J Block
-                    Sk <= rdata_1;
+                    Si <= rdata_1;
                 end
                 
                 if (i == (key_length + 2) && PRGA) begin                // Finish
@@ -138,10 +159,11 @@ module rc4
     assign ckey = PRGA ? ((~wen && state == STEP_1 && i > 1 && i < 255) ? rdata_1 : ckey) : 8'd0;
 	 
 	 // value of cipher key
-    assign key_reg[0] = key[7:0];
-    assign key_reg[1] = key[15:8];
-    assign key_reg[2] = key[23:16];
-    assign key_reg[3] = key[31:24];
+    always@(*) begin
+        for (iter = 0; iter < NUMS_OF_BYTES; iter = iter + 1) begin
+            key_reg[iter] <= key[iter * 8 +: 8]; 
+        end
+     end
 
     ram SBox(
         .rst_n      (rst_n),

@@ -3,11 +3,10 @@
 
 #Run matlab code to generate output.
 
-matlab -r "try, run ('.\\test_matlab\\rc4.m'); end; quit"
+matlab -r "try, run ('.\\test_matlab\\rc4.m'); end; quit" ;
 
-sleep 20
 #Run modelsim
-
+sleep 15
 vsim -c -do run_sim.tcl
 
 #end simulation

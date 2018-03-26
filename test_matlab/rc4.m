@@ -23,7 +23,7 @@ end
 j = 0;
 
 for i = 0:255
-   j = mod(j + sBox(i + 1) + key(mod(i, keyLength) + 1), 256);
+   j = mod(j + sBox(i + 1) + key(mod(i, keyLength) + 1), 256)
    temp = sBox(i + 1);
    sBox(i + 1) = sBox(j + 1);
    sBox(j + 1) = temp;

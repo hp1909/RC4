@@ -30,8 +30,8 @@ module rc4_new_design
     input [7:0] key_length,
 
     output [NUMS_OF_BYTES * 8 - 1:0]  ckey,
+    output reg [NUMS_OF_BYTES * 8 - 1:0]  data_out,
     output reg [NUMS_OF_BYTES * 8 - 1:0] k_addr,  
-
     output reg done
 );
 	
@@ -48,6 +48,7 @@ module rc4_new_design
     reg     [7:0]   temp_addr;
     reg             first_iter;
     reg	    [7:0]	Si;
+    // reg     [7:0]   temp_data;
 
     // variable for loop
     integer iter;
@@ -107,6 +108,13 @@ module rc4_new_design
                     if (PRGA && i >= 1) begin
                         k <= Si + rdata_3; // calculate k by Si + Sj    // Cal k Block
                         k_addr[(i - 1) * 8 +: 8] <= Si + rdata_3;
+                        /*
+                        for (iter = 0; iter < NUMS_OF_BYTES; iter = iter + 1) begin
+                            k_addr[i * 8 +: 8] <= iter + 8'd3;
+                        end */
+                        if (i >= 2) begin
+                            data_out[(i - 2) * 8 +: 8] <= rdata_1;
+                        end
                     end
                     temp_addr <= i;
                     i <= i + 1'b1;      // increase i for next iteration
