@@ -30,3 +30,6 @@
 # ** Warning: (vsim-7) Failed to open readmem file "../test_data/output.txt" in read mode.
 # No such file or directory. (errno = ENOENT)    : rc4_tb.v(67)
 #    Time: 0 ps  Iteration: 0  Instance: /rc4_tb
+quit
+# End time: 18:43:22 on Mar 26,2018, Elapsed time: 2:12:55
+# Errors: 0, Warnings: 2
