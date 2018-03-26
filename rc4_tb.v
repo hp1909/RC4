@@ -55,16 +55,15 @@ parameter NUMS_OF_BYTES = 4;
 
     initial begin
         out = $fopen("output.txt", "w");
-
-        $readmemh("./test_data/input.txt", input_key);
-        $readmemh("./test_data/output.txt", output_cipher);
+        #5
+        $readmemh("../test_data/input.txt", key_length, 0, 0);
+        $readmemh("../test_data/input.txt", input_key);
+        $readmemh("../test_data/output.txt", output_cipher);
     end
 
     initial begin
         clk = 1'b0;
         rst_n = 1'b0;
-
-        key_length = input_key[7:0];
 
         for (i = 1; i < NUMS_OF_BYTES; i = i + 1) begin
             key[i * 8 +: 8] = input_key[(i + 1) * 8 +: 8];
