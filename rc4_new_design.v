@@ -30,7 +30,7 @@ module rc4_new_design
     input [7:0] key_length,
 
     output [NUMS_OF_BYTES * 8 - 1:0]  ckey,
-    output reg [NUMS_OF_BYTES * 8 - 1:0]  data_out,
+    //output reg [NUMS_OF_BYTES * 8 - 1:0]  data_out,
     output reg [NUMS_OF_BYTES * 8 - 1:0] k_addr,  
     output reg done
 );
@@ -104,6 +104,12 @@ module rc4_new_design
                     if (i != j) begin
                         wdata_2 <= rdata_3; // i <- S[j]
                         wdata_3 <= rdata_1; // j <- S[i]
+                        if (PRGA) begin
+                            wdata_3 <= Si;
+                        end
+                        else begin
+                            wdata_3 <= rdata_1; // j <- S[i]
+                        end
                     end 
                     if (PRGA && i >= 1) begin
                         k <= Si + rdata_3; // calculate k by Si + Sj    // Cal k Block

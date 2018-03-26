@@ -63,8 +63,13 @@ module rc4_tb();
 
     initial begin
 
+        $readmemh("test_data/input.txt", input_key);
+        $readmemh("test_data/output.txt", output_cipher);
+
+        /* If you want to run directly in Modelsim, use this path
         $readmemh("../test_data/input.txt", input_key);
         $readmemh("../test_data/output.txt", output_cipher);
+        */
     end
 
     initial begin
