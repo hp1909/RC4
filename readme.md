@@ -2,45 +2,45 @@
 
 **1. FILE STRUCTURE**
 
-  RC4
-  │   .DS_Store
-  │   autorun_test.sh
-  │   git_update.sh
-  │   RC4.qpf
-  │   RC4.qsf
-  │   RC4.qsf.bak
-  │   RC4.qws
-  │   readme.md
-  │       
-  ├───src
-  │   ├───arc1_4_bits_per_clock
-  │   │       ram.v
-  │   │       ram_tb.v
-  │   │       rc4.v
-  │   │       rc4_inst.v
-  │   │       rc4_tb.v
-  │   │       
-  │   ├───arc2_n_bytes_per_clk
-  │   │       ram_new_design.v
-  │   │       rc4_new_design.v
-  │   │       
-  │   └───arc3_16_bits_per_2_clk
-  └───test
-      ├───c
-      │       input.txt
-      │       rc4.cpp
-      │       
-      ├───data
-      │       input.txt
-      │       output.txt
-      │       
-      ├───matlab
-      │       rc4.asv
-      │       rc4.m
-      │       test_case_generater.m
-      │       
-      └───modelsim
-              run_sim.tcl
+    RC4
+    │   .DS_Store
+    │   autorun_test.sh
+    │   git_update.sh
+    │   RC4.qpf
+    │   RC4.qsf
+    │   RC4.qsf.bak
+    │   RC4.qws
+    │   readme.md
+    │       
+    ├───src
+    │   ├───arc1_4_bits_per_clock
+    │   │       ram.v
+    │   │       ram_tb.v
+    │   │       rc4.v
+    │   │       rc4_inst.v
+    │   │       rc4_tb.v
+    │   │       
+    │   ├───arc2_n_bytes_per_clk
+    │   │       ram_new_design.v
+    │   │       rc4_new_design.v
+    │   │       
+    │   └───arc3_16_bits_per_2_clk
+    └───test
+        ├───c
+        │       input.txt
+        │       rc4.cpp
+        │       
+        ├───data
+        │       input.txt
+        │       output.txt
+        │       
+        ├───matlab
+        │       rc4.asv
+        │       rc4.m
+        │       test_case_generater.m
+        │       
+        └───modelsim
+                run_sim.tcl
 
 **2. /src FOLDER**
 
@@ -55,7 +55,7 @@
         +   rc4_inst.v: use for running on FPGA board (In this project, we use DE2-115 EP4CE115F29C7).
         +   ram.v: contains code to generate SBox of the RC4 algorithm.
 
-3. /test FOLDER
+**3. /test FOLDER**
 
     - Contains files for generating and evaluating the results.
         +   matlab sub-folder: contains matlab code. It gets input data (number of secret key bytes and secret key)
@@ -64,7 +64,7 @@
         +   modelsim: contains a file name `run_sim.tcl` to auto run modelsim with full signal and a work folder is 
                       workspace of modelsim.
 
-4. AUTORUN FILES
+**4. AUTORUN FILES**
 
     -   In this project we add 2 autorun file. 
         +   `git_update.sh`: use for update code to github with the 
@@ -73,7 +73,7 @@
         +   `autorun_test.sh`: use for running test automatically. When start, it runs matlab to call rc4.m script to generate 
             output and after that run modelsim to verify output from matlab. If success, it return data correct notation.
     
-5. HOW TO RUN THIS PROJECT
+**5. HOW TO RUN THIS PROJECT**
 
     -   If you want to open project in Quartus, you need to start Quartus software and open file rc4.qpf.
     
