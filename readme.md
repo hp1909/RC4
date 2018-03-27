@@ -90,5 +90,5 @@
 -   If command windows show # data correct, that mean your verilog code is completely correct with matlab.
     Otherwise, It will show which bytes were wrong. 
 
-**  If you want to execute test with 1 step. Open command windows and run command `.\autorun_test.sh`. If will do all above step
+**If you want to execute test with 1 step. Open command windows and run command `.\autorun_test.sh`. If will do all above step
     and show result in command windows. If you want to view waveform, just type: `vsim -view vsim.wlf`.**
