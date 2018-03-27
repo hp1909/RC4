@@ -1,6 +1,6 @@
 ## -------------  HOW TO USE THIS PROJECT -----------------
 
-1. FILE STRUCTURE
+**1. FILE STRUCTURE**
 
   RC4
   │   .DS_Store
@@ -42,7 +42,7 @@
       └───modelsim
               run_sim.tcl
 
-2. /src FOLDER
+**2. /src FOLDER**
 
     - Contains source code verilog of RC4 algorithm including:
         +   RC4 generate 4 bits / clock in both KSA sub-stage and PRGA.
