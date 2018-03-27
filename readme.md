@@ -43,7 +43,7 @@ RC4
     └───modelsim
             run_sim.tcl
 
-2. SRC FOLDER
+2. /src FOLDER
 
     - Contains source code verilog of RC4 algorithm including:
         +   RC4 generate 4 bits / clock in both KSA sub-stage and PRGA.
@@ -56,4 +56,13 @@ RC4
         +   rc4_inst.v: use for running on FPGA board (In this project, we use DE2-115 EP4CE115F29C7).
         +   ram.v: contains code to generate SBox of the RC4 algorithm.
 
-3. 
+3. /test FOLDER
+
+    - Contains files for generating and evaluating the results.
+        +   matlab sub-folder: contains matlab code. It gets input data (number of secret key bytes and secret key)
+                               and return result to output.txt file.
+        +   c sub-folder: contains c code for verify result. (for reference, you may only use matlab enough).
+        +   modelsim: contains a file name run_sim.tcl to auto run modelsim with full signal and a work folder is 
+                      workspace of modelsim.
+
+    - 
