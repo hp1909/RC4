@@ -5,16 +5,22 @@
 %   Description: Use this script to test simulation result made by modelsim
 %--------------------------------------------------------------------------
 
-clear all
-clc
-a = '../test_data/output.txt';
+
+a = '../data/output.txt';
 fileOut  = fopen(a, 'w');
-fileIn   = fopen('../test_data/input.txt');
+fileIn   = fopen('../data/input.txt', 'w');
 
-A = fscanf(fileIn, '%x')'
+% A = fscanf(fileIn, '%x')'
 
-keyLength = A(1)
-key = A(2:A(1) + 1)
+% keyLength = A(1)
+% key = A(2:A(1) + 1)
+
+fprintf(fileIn, "%x\n", length);
+randomInput = randi(255, length, 1);
+
+for i=1:length
+   fprintf(fileIn, "%x\n", randomInput(i)); 
+end
 
 for i = 0:255
    sBox(i + 1) = i;
