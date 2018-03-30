@@ -23,7 +23,8 @@ module rc4_tb();
     //wire [7:0] temp_data;
     wire [2:0] state;
     wire [NUMS_OF_BYTES * 8 - 1:0] k_addr;
-    wire [7:0] ckey;
+    //wire [7:0] ckey;
+    wire [NUMS_OF_BYTES * 8 - 1:0] ckey;
     wire [NUMS_OF_BYTES * 8 - 1:0] data_out;
     //wire [7:0] ckey;
     wire done;
@@ -54,7 +55,7 @@ module rc4_tb();
                     // .wdata_3    (wdata_3),
                     // .temp_addr  (temp_addr),
                     //.temp_data  (temp_data),
-                    //.k_addr     (k_addr),
+                    .k_addr     (k_addr),
                     .data_out   (data_out),
                     //.k_data     (k_data),
                     .ckey       (ckey),

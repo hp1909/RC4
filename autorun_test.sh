@@ -3,7 +3,7 @@
 
 #Run matlab code to generate output.
 
-matlab -r "try, length=1; run ('.\\test\\matlab\\rc4.m'); end; quit" ;
+matlab -r "length=$1;try, run ('test\\matlab\\rc4.m'); end;" ;
 
 #Run modelsim
 sleep 13

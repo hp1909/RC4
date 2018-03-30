@@ -1,0 +1,130 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/hoang/Desktop/RC4/test/modelsim
+vram
+Z1 !s110 1522428867
+!i10b 1
+!s100 J1089jQU;ec=K_=G[>Hd62
+IHY7NYf[4:_FTZV1AJJ6K52
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1522427277
+8../../src/arc1/ram.v
+F../../src/arc1/ram.v
+Z4 L0 10
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1522428866.000000
+Z7 !s107 ../../src/arc1/ram_tb.v|../../src/arc2/ram_new_design.v|../../src/arc1/rc4.v|../../src/arc1/ram.v|../../src/arc2/rc4_new_design.v|../../src/arc1/rc4_tb.v|
+Z8 !s90 ../../src/arc1/rc4_tb.v|../../src/arc2/rc4_new_design.v|../../src/arc1/ram.v|../../src/arc1/rc4.v|../../src/arc2/ram_new_design.v|../../src/arc1/ram_tb.v|
+!i113 1
+Z9 tCvgOpt 0
+vram_new_design
+R1
+!i10b 1
+!s100 :bMN?QB];[aKb9egS`EUi3
+I2A7MlE>4IW5^nU7?:SKIV1
+R2
+R0
+R3
+8../../src/arc2/ram_new_design.v
+F../../src/arc2/ram_new_design.v
+L0 17
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vram_tb
+R1
+!i10b 1
+!s100 f0^nU2X@i`>zWc0E3MNF[2
+IA_@Y67PWZmY:Vi91IGPeL2
+R2
+R0
+R3
+8../../src/arc1/ram_tb.v
+F../../src/arc1/ram_tb.v
+L0 7
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vrc4
+R1
+!i10b 1
+!s100 N_`S?[hab523WbonP7i3V1
+I?:aDDV<?g0mc`RW5mjhQ?2
+R2
+R0
+R3
+8../../src/arc1/rc4.v
+F../../src/arc1/rc4.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vrc4_new_design
+R1
+!i10b 1
+!s100 m>=Ni=i`MMU7zE3eQ[;j<1
+I9UNCULC`_faAn:jd<1Bid2
+R2
+R0
+R3
+8../../src/arc2/rc4_new_design.v
+F../../src/arc2/rc4_new_design.v
+L0 23
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vrc4_tb
+R1
+!i10b 1
+!s100 HhGz<AMg:j;bRB;JPYSYN1
+IS[QLI;?jcUG8EYKlnd<8I2
+R2
+R0
+w1522428000
+8../../src/arc1/rc4_tb.v
+F../../src/arc1/rc4_tb.v
+L0 4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9

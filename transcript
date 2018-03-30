@@ -1,0 +1,38 @@
+# do run_sim.tcl
+# reading modelsim.ini
+# ** Warning: (vlib-34) Library already exists at "mywork".
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work mywork 
+# Modifying modelsim.ini
+# Start time: 01:54:26 on Mar 31,2018
+# vlog ../../src/arc1/rc4_tb.v ../../src/arc2/rc4_new_design.v ../../src/arc1/ram.v ../../src/arc1/rc4.v ../../src/arc2/ram_new_design.v ../../src/arc1/ram_tb.v 
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# -- Compiling module rc4_tb
+# -- Compiling module rc4_new_design
+# -- Compiling module ram
+# -- Compiling module rc4
+# -- Compiling module ram_new_design
+# -- Compiling module ram_tb
+# 
+# Top level modules:
+# 	rc4_tb
+# 	rc4
+# 	ram_tb
+# End time: 01:54:27 on Mar 31,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim work.rc4_tb 
+# Start time: 01:54:30 on Mar 31,2018
+# Loading work.rc4_tb
+# Loading work.rc4_new_design
+# Loading work.ram_new_design
+# ** Warning: (quit
+# End time: 01:55:01 on Mar 31,2018, Elapsed time: 0:04:29
+# Errors: 0, Warnings: 0
+ame: DESKTOP-3SN13F5  ProcessID: 1776
+#           Attempting to use alternate WLF file "./wlftt3qfm2".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftt3qfm2
+# data corect
+quit
+# End time: 01:54:58 on Mar 31,2018, Elapsed time: 0:00:28
+# Errors: 0, Warnings: 2

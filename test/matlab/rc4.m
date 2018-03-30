@@ -11,7 +11,7 @@ fileOut  = fopen(a, 'w');
 fileIn   = fopen('../data/input.txt', 'w');
 
 % A = fscanf(fileIn, '%x')'
-
+keyLength = length;
 % keyLength = A(1)
 % key = A(2:A(1) + 1)
 
