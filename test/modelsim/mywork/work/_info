@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/17.1
+vram
+Z0 !s110 1522167851
+!i10b 1
+!s100 V=mbhM92oJKamlEBVG0JM3
+IY7`;]8dGAFkT@1I9_02Am1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/test/modelsim/mywork
+w1522127562
+8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/ram.v
+FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/ram.v
+Z3 L0 10
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1522167851.000000
+!s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/ram.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/ram.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+vram_tb
+R0
+!i10b 1
+!s100 aPfke1eU;S1X4EfCB^Y^@1
+I6G_aZ1c;`SFYNhgARH@GZ1
+R1
+R2
+w1522127899
+8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/ram_tb.v
+FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/ram_tb.v
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/ram_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/ram_tb.v|
+!i113 1
+R6
+R7
+vrc4
+R0
+!i10b 1
+!s100 Xj6R^`[z;GmTUfhlGl5o23
+I>J:`lQiNfd>>ZYSanP=Cn1
+R1
+R2
+w1522127448
+8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/rc4.v
+FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/rc4.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/rc4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/rc4.v|
+!i113 1
+R6
+R7
+vrc4_tb
+R0
+!i10b 1
+!s100 D=AZOJ5CilF39:hM^XOY23
+IA7L^Qjk1YK:8=_bN6kAI`0
+R1
+R2
+w1522167846
+8C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/rc4_tb.v
+FC:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/rc4_tb.v
+L0 4
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/rc4_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/hoangphuc/Google Drive/tai_lieu_hoc_tap/Internship/Verilog_Design/RC4/src/arc1_4_bits_per_clock/rc4_tb.v|
+!i113 1
+R6
+R7

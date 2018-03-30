@@ -17,24 +17,24 @@ module rc4
     input [7:0]     key_length,
 
     output [7:0]    ckey,
-    output reg      done,
+    output reg      done
 
-    output    [7:0]   raddr_1, waddr_2, addr_3,
-    output    [7:0]   rdata_1, rdata_3,
-    output reg	    [7:0]   wdata_2, wdata_3,
+    // output    [7:0]   raddr_1, waddr_2, addr_3,
+    // output    [7:0]   rdata_1, rdata_3,
+    // output reg	    [7:0]   wdata_2, wdata_3,
 
-    output reg             wen,
-    output reg 	[2:0]   state,
-    output reg             PRGA, KSA,
+    // output reg             wen,
+    // output reg 	[2:0]   state,
+    // output reg             PRGA, KSA,
 
-    output reg     [7:0]   i, j, k,
-    output reg     [7:0]   temp_addr
+    // output reg     [7:0]   i, j, k,
+    // output reg     [7:0]   temp_addr
     // output reg             first_iter,
     // output reg	    [7:0]	Si
 );
 	
 	reg     [7:0]   key_reg [NUMS_OF_BYTES - 1:0];
-    /*
+    
     wire    [7:0]   raddr_1, waddr_2, addr_3;
     wire    [7:0]   rdata_1, rdata_3;
     reg	    [7:0]   wdata_2, wdata_3;
@@ -45,7 +45,7 @@ module rc4
 
     reg     [7:0]   i, j, k;
     reg     [7:0]   temp_addr;
-    */
+   
     reg             first_iter;
     reg	    [7:0]	Si;
     

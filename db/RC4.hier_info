@@ -2,15 +2,15 @@
 CLOCK_50 => CLOCK_50.IN1
 SW[0] => SW[0].IN1
 SW[1] => SW[1].IN1
-ckey[0] <= rc4:inst.ckey
-ckey[1] <= rc4:inst.ckey
-ckey[2] <= rc4:inst.ckey
-ckey[3] <= rc4:inst.ckey
-ckey[4] <= rc4:inst.ckey
-ckey[5] <= rc4:inst.ckey
-ckey[6] <= rc4:inst.ckey
-ckey[7] <= rc4:inst.ckey
-LEDG[0] <= rc4:inst.done
+ckey[0] << rc4:inst.ckey
+ckey[1] << rc4:inst.ckey
+ckey[2] << rc4:inst.ckey
+ckey[3] << rc4:inst.ckey
+ckey[4] << rc4:inst.ckey
+ckey[5] << rc4:inst.ckey
+ckey[6] << rc4:inst.ckey
+ckey[7] << rc4:inst.ckey
+LEDG[0] << rc4:inst.done
 
 
 |rc4_inst|rc4:inst
