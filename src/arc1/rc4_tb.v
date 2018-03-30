@@ -30,32 +30,32 @@ module rc4_tb();
     integer i, out;
     reg valid;
 
-    rc4 #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) rc4_test(
+    rc4_new_design #(.NUMS_OF_BYTES(NUMS_OF_BYTES)) rc4_test(
                     //input
                     .clk        (clk),
                     .rst_n      (rst_n),
                     .start      (start),
                     .key        (key),
                     .key_length (key_length),
-                    .state      (state),
-                    .PRGA       (PRGA),
-                    .KSA        (KSA),
-                    //output
-                    .wen        (wen),
-                    .j          (j_out),
-                    .k          (k_out),
-                    .i          (i_out),
-                    .raddr_1    (raddr_1),
-                    .waddr_2    (waddr_2),
-                    .addr_3     (addr_3),
-                    .rdata_1    (rdata_1),
-                    .rdata_3    (rdata_3),
-                    .wdata_2    (wdata_2),
-                    .wdata_3    (wdata_3),
-                    .temp_addr  (temp_addr),
+                    // .state      (state),
+                    // .PRGA       (PRGA),
+                    // .KSA        (KSA),
+                    // //output
+                    // .wen        (wen),
+                    // .j          (j_out),
+                    // .k          (k_out),
+                    // .i          (i_out),
+                    // .raddr_1    (raddr_1),
+                    // .waddr_2    (waddr_2),
+                    // .addr_3     (addr_3),
+                    // .rdata_1    (rdata_1),
+                    // .rdata_3    (rdata_3),
+                    // .wdata_2    (wdata_2),
+                    // .wdata_3    (wdata_3),
+                    // .temp_addr  (temp_addr),
                     //.temp_data  (temp_data),
                     //.k_addr     (k_addr),
-                    //.data_out   (data_out),
+                    .data_out   (data_out),
                     //.k_data     (k_data),
                     .ckey       (ckey),
                     .done       (done)
@@ -63,8 +63,8 @@ module rc4_tb();
 
     initial begin
 
-        $readmemh("../../data/input.txt", input_key);
-        $readmemh("../../data/output.txt", output_cipher);
+        $readmemh("../../test/data/input.txt", input_key);
+        $readmemh("../../test/data/output.txt", output_cipher);
 
         // If you want to run directly in Modelsim, use this path
         // $readmemh("../test_data/input.txt", input_key);

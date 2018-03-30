@@ -1,4 +1,7 @@
-
+/*
+*   Author: Hoang Phuc - intern
+*   Module: ram testbench - run in modelsim
+*/
 `timescale 1 ns / 100ps
 
 module ram_tb();

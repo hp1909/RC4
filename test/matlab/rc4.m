@@ -16,10 +16,10 @@ fileIn   = fopen('../data/input.txt', 'w');
 % key = A(2:A(1) + 1)
 
 fprintf(fileIn, "%x\n", length);
-randomInput = randi(255, length, 1);
+key = randi(255, length, 1);
 
 for i=1:length
-   fprintf(fileIn, "%x\n", randomInput(i)); 
+   fprintf(fileIn, "%x\n", key(i)); 
 end
 
 for i = 0:255
